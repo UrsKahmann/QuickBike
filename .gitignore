@@ -1,2 +1,3 @@
 # IDEs
 *.DS_Store
+xcuserdata/*
