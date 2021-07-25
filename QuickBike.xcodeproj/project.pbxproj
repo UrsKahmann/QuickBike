@@ -13,6 +13,8 @@
 		2EE93B2026AC7483005AA5C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B1F26AC7483005AA5C2 /* Preview Assets.xcassets */; };
 		2EE93B4726AD803D005AA5C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B4926AD803D005AA5C2 /* Localizable.strings */; };
 		2EE93B4D26AD8254005AA5C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B4C26AD8254005AA5C2 /* R.generated.swift */; };
+		2EE93B4F26AD87C3005AA5C2 /* DataCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B4E26AD87C3005AA5C2 /* DataCollectionView.swift */; };
+		2EE93B5226AD926E005AA5C2 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B5126AD926E005AA5C2 /* TitleLabel.swift */; };
 		81D7C948568B665213A5DB03 /* Pods_QuickBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992CFC858CA474A5B494E829 /* Pods_QuickBike.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		2EE93B2126AC7483005AA5C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EE93B4826AD803D005AA5C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2EE93B4C26AD8254005AA5C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		2EE93B4E26AD87C3005AA5C2 /* DataCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionView.swift; sourceTree = "<group>"; };
+		2EE93B5126AD926E005AA5C2 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		411297D8669BA819F9EB2FC7 /* Pods-QuickBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBikeTests.release.xcconfig"; path = "Target Support Files/Pods-QuickBikeTests/Pods-QuickBikeTests.release.xcconfig"; sourceTree = "<group>"; };
 		54E3CC609B668F5CB444185A /* Pods_QuickBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		791234A3430336FFC32E1505 /* Pods-QuickBike-QuickBikeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike-QuickBikeUITests.debug.xcconfig"; path = "Target Support Files/Pods-QuickBike-QuickBikeUITests/Pods-QuickBike-QuickBikeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,9 +86,11 @@
 		2EE93B1726AC7482005AA5C2 /* QuickBike */ = {
 			isa = PBXGroup;
 			children = (
+				2EE93B5026AD9241005AA5C2 /* ViewElements */,
 				2EE93B4B26AD8171005AA5C2 /* Generated */,
 				2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */,
 				2EE93B1A26AC7482005AA5C2 /* StartView.swift */,
+				2EE93B4E26AD87C3005AA5C2 /* DataCollectionView.swift */,
 				2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */,
 				2EE93B2126AC7483005AA5C2 /* Info.plist */,
 				2EE93B1E26AC7483005AA5C2 /* Preview Content */,
@@ -107,6 +113,14 @@
 				2EE93B4C26AD8254005AA5C2 /* R.generated.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		2EE93B5026AD9241005AA5C2 /* ViewElements */ = {
+			isa = PBXGroup;
+			children = (
+				2EE93B5126AD926E005AA5C2 /* TitleLabel.swift */,
+			);
+			path = ViewElements;
 			sourceTree = "<group>";
 		};
 		A443EBF4F7E69AABBD46C4F6 /* Frameworks */ = {
@@ -253,8 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE93B4F26AD87C3005AA5C2 /* DataCollectionView.swift in Sources */,
 				2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */,
 				2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */,
+				2EE93B5226AD926E005AA5C2 /* TitleLabel.swift in Sources */,
 				2EE93B4D26AD8254005AA5C2 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
