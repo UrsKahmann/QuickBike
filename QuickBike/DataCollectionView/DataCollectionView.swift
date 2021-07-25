@@ -11,15 +11,28 @@ import Rswift
 struct DataCollectionView: View {
 	
 	@Environment(\.presentationMode) var presentationMode
+	
+	@ObservedObject var viewModel = DataCollectionViewModel()
+	
+	private var locationString: String {
+		guard let location = self.viewModel.location else {
+			return "Location not availabel!"
+		}
+		
+		return "Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)"
+	}
 
 	var body: some View {
 		
 		VStack(alignment: .center) {
 			TitleLabel()
+			Text("Current Location:")
+			Text("\(self.locationString)")
 			Spacer()
 			HStack {
 				Spacer()
 				Button(action: {
+					self.viewModel.stopLocationTracking()
 					self.presentationMode.wrappedValue.dismiss()
 				}) {
 					Text("Finish data collection")
@@ -35,6 +48,9 @@ struct DataCollectionView: View {
 				Spacer()
 			}
 		}.navigationBarHidden(true)
+		.onAppear() {
+			self.viewModel.startLocationTracking()
+		}
 	}
 }
 

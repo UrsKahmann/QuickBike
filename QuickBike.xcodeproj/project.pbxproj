@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E43B6AC26ADE22A0046DFB7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43B6AB26ADE22A0046DFB7 /* LocationService.swift */; };
+		2E43B6AF26ADEDBB0046DFB7 /* DataCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */; };
 		2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */; };
 		2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B1A26AC7482005AA5C2 /* StartView.swift */; };
 		2EE93B1D26AC7483005AA5C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		1BD5FE21F86319051C0A8B8E /* Pods-QuickBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike.release.xcconfig"; path = "Target Support Files/Pods-QuickBike/Pods-QuickBike.release.xcconfig"; sourceTree = "<group>"; };
 		25B2C058F19DE5707BF03336 /* Pods-QuickBike-QuickBikeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike-QuickBikeUITests.release.xcconfig"; path = "Target Support Files/Pods-QuickBike-QuickBikeUITests/Pods-QuickBike-QuickBikeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2E43B6AB26ADE22A0046DFB7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewModel.swift; sourceTree = "<group>"; };
 		2EE93B1526AC7482005AA5C2 /* QuickBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickBikeApp.swift; sourceTree = "<group>"; };
 		2EE93B1A26AC7482005AA5C2 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -65,6 +69,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2E43B6AA26ADE2190046DFB7 /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				2E43B6AB26ADE22A0046DFB7 /* LocationService.swift */,
+			);
+			path = LocationService;
+			sourceTree = "<group>";
+		};
+		2E43B6AD26ADED920046DFB7 /* DataCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				2EE93B4E26AD87C3005AA5C2 /* DataCollectionView.swift */,
+				2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */,
+			);
+			path = DataCollectionView;
+			sourceTree = "<group>";
+		};
 		2EE93B0C26AC7482005AA5C2 = {
 			isa = PBXGroup;
 			children = (
@@ -86,11 +107,12 @@
 		2EE93B1726AC7482005AA5C2 /* QuickBike */ = {
 			isa = PBXGroup;
 			children = (
-				2EE93B5026AD9241005AA5C2 /* ViewElements */,
 				2EE93B4B26AD8171005AA5C2 /* Generated */,
+				2E43B6AA26ADE2190046DFB7 /* LocationService */,
+				2E43B6AD26ADED920046DFB7 /* DataCollectionView */,
+				2EE93B5026AD9241005AA5C2 /* ViewElements */,
 				2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */,
 				2EE93B1A26AC7482005AA5C2 /* StartView.swift */,
-				2EE93B4E26AD87C3005AA5C2 /* DataCollectionView.swift */,
 				2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */,
 				2EE93B2126AC7483005AA5C2 /* Info.plist */,
 				2EE93B1E26AC7483005AA5C2 /* Preview Content */,
@@ -269,8 +291,10 @@
 			files = (
 				2EE93B4F26AD87C3005AA5C2 /* DataCollectionView.swift in Sources */,
 				2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */,
+				2E43B6AC26ADE22A0046DFB7 /* LocationService.swift in Sources */,
 				2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */,
 				2EE93B5226AD926E005AA5C2 /* TitleLabel.swift in Sources */,
+				2E43B6AF26ADEDBB0046DFB7 /* DataCollectionViewModel.swift in Sources */,
 				2EE93B4D26AD8254005AA5C2 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
