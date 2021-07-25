@@ -19,6 +19,7 @@ struct StartView: View {
 				.resizable()
 				.frame(width: 50, height: 30, alignment: .center)
 		}
+		.padding(.top)
 	}
 	
 	private var aboutInfoBox: some View {
