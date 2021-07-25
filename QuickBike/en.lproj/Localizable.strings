@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  QuickBike
+
+  Created by Urs Privat on 25.07.21.
+  
+*/
+
+"Start.InfoBox.Header" = "What is Quick Bike?";
+"Start.InfoBox.Text" = "This is a prototype for collecting data on traffic light phases. The goal is to predict the green phases in order to help the user to ride on a green traffic light wave. Therefore we have to collect data on when the traffic lights are red/green. Run this prototype during your bike rides and tell the app when you are waiting at a red light. This way we can all together collect data on the traffic light phases. Thanks for your help!";
+"Start.DataCollectionButton" = "Start data collection";

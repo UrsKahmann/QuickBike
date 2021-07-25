@@ -6,53 +6,64 @@
 //
 
 import SwiftUI
+import Rswift
 
 struct StartView: View {
+	
+	private var header: some View {
+		HStack {
+			Text("Quick")
+				.font(.largeTitle)
+				.padding(.top, 4)
+			Image(systemName: "bicycle")
+				.resizable()
+				.frame(width: 50, height: 30, alignment: .center)
+		}
+	}
+	
+	private var aboutInfoBox: some View {
+		VStack(alignment: .leading) {
+			Text(R.string.localizable.startInfoBoxHeader())
+				.font(.headline)
+				.padding(.leading)
+			Divider()
+				.padding(.horizontal)
+			Text(verbatim: R.string.localizable.startInfoBoxText())
+				.padding()
+		}
+		.padding()
+	}
+	
+	private var startDataCollectionButton: some View {
+		HStack {
+			Spacer()
+			Button(action: {
+				print("")
+			}) {
+				Text(R.string.localizable.startDataCollectionButton())
+					.font(.headline)
+					.foregroundColor(.green)
+					.padding()
+					.overlay(
+						RoundedRectangle(cornerRadius: 10)
+							.stroke(Color.green, lineWidth: 2)
+					)
+			}
+			.padding()
+			Spacer()
+		}
+	}
+	
 	var body: some View {
 		
 		NavigationView {
-		
-			VStack(alignment: .leading) {
-				HStack {
-					Spacer()
-					Text("Quick Bike")
-						.font(.largeTitle)
-						.padding()
-					Image(systemName: "bicycle")
-						.resizable()
-						.frame(width: 45, height: 30, alignment: .center)
-					Spacer()
-				}
-				
-				//Divider()
-				Text("What is Quick Bike?")
-					.font(.headline)
-					.padding(.leading)
-				Divider()
-					.padding(.horizontal)
-				Text("This is a prototype for collecting data on traffic light phases. The goal is to ...")
-					.padding()
+			VStack(alignment: .center) {
+				self.header
+				self.aboutInfoBox
 				Spacer()
-				
-				HStack {
-					Spacer()
-					Button(action: {
-						print("")
-					}) {
-						Text("Start data collection")
-							.font(.headline)
-							.foregroundColor(.green)
-							.padding()
-							.overlay(
-								RoundedRectangle(cornerRadius: 10)
-									.stroke(Color.green, lineWidth: 2)
-							)
-					}
-					.padding()
-					Spacer()
-				}
+				self.startDataCollectionButton
 			}
-			Spacer()
+			.navigationBarHidden(true)
 		}
 	}
 }

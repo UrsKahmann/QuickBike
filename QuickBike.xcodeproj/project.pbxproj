@@ -11,6 +11,8 @@
 		2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B1A26AC7482005AA5C2 /* StartView.swift */; };
 		2EE93B1D26AC7483005AA5C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */; };
 		2EE93B2026AC7483005AA5C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B1F26AC7483005AA5C2 /* Preview Assets.xcassets */; };
+		2EE93B4726AD803D005AA5C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B4926AD803D005AA5C2 /* Localizable.strings */; };
+		2EE93B4D26AD8254005AA5C2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B4C26AD8254005AA5C2 /* R.generated.swift */; };
 		81D7C948568B665213A5DB03 /* Pods_QuickBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992CFC858CA474A5B494E829 /* Pods_QuickBike.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 		2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EE93B1F26AC7483005AA5C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2EE93B2126AC7483005AA5C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EE93B4826AD803D005AA5C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2EE93B4C26AD8254005AA5C2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		411297D8669BA819F9EB2FC7 /* Pods-QuickBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBikeTests.release.xcconfig"; path = "Target Support Files/Pods-QuickBikeTests/Pods-QuickBikeTests.release.xcconfig"; sourceTree = "<group>"; };
 		54E3CC609B668F5CB444185A /* Pods_QuickBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		791234A3430336FFC32E1505 /* Pods-QuickBike-QuickBikeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike-QuickBikeUITests.debug.xcconfig"; path = "Target Support Files/Pods-QuickBike-QuickBikeUITests/Pods-QuickBike-QuickBikeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,11 +82,13 @@
 		2EE93B1726AC7482005AA5C2 /* QuickBike */ = {
 			isa = PBXGroup;
 			children = (
+				2EE93B4B26AD8171005AA5C2 /* Generated */,
 				2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */,
 				2EE93B1A26AC7482005AA5C2 /* StartView.swift */,
 				2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */,
 				2EE93B2126AC7483005AA5C2 /* Info.plist */,
 				2EE93B1E26AC7483005AA5C2 /* Preview Content */,
+				2EE93B4926AD803D005AA5C2 /* Localizable.strings */,
 			);
 			path = QuickBike;
 			sourceTree = "<group>";
@@ -93,6 +99,14 @@
 				2EE93B1F26AC7483005AA5C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2EE93B4B26AD8171005AA5C2 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				2EE93B4C26AD8254005AA5C2 /* R.generated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		A443EBF4F7E69AABBD46C4F6 /* Frameworks */ = {
@@ -113,6 +127,7 @@
 			buildConfigurationList = 2EE93B3A26AC7483005AA5C2 /* Build configuration list for PBXNativeTarget "QuickBike" */;
 			buildPhases = (
 				1B941DF1AC2713B992C994A8 /* [CP] Check Pods Manifest.lock */,
+				2EE93B4A26AD8111005AA5C2 /* ShellScript */,
 				2EE93B1126AC7482005AA5C2 /* Sources */,
 				2EE93B1226AC7482005AA5C2 /* Frameworks */,
 				2EE93B1326AC7482005AA5C2 /* Resources */,
@@ -165,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EE93B2026AC7483005AA5C2 /* Preview Assets.xcassets in Resources */,
+				2EE93B4726AD803D005AA5C2 /* Localizable.strings in Resources */,
 				2EE93B1D26AC7483005AA5C2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +210,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2EE93B4A26AD8111005AA5C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/QuickBike/Generated/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/QuickBike/Generated/R.generated.swift\"\n";
+		};
 		D6A3C02F7C6F52BEB12538F6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,10 +255,22 @@
 			files = (
 				2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */,
 				2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */,
+				2EE93B4D26AD8254005AA5C2 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2EE93B4926AD803D005AA5C2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EE93B4826AD803D005AA5C2 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2EE93B3826AC7483005AA5C2 /* Debug */ = {
