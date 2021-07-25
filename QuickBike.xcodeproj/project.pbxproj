@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,40 +11,25 @@
 		2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B1A26AC7482005AA5C2 /* StartView.swift */; };
 		2EE93B1D26AC7483005AA5C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */; };
 		2EE93B2026AC7483005AA5C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B1F26AC7483005AA5C2 /* Preview Assets.xcassets */; };
-		2EE93B2B26AC7483005AA5C2 /* QuickBikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B2A26AC7483005AA5C2 /* QuickBikeTests.swift */; };
-		2EE93B3626AC7483005AA5C2 /* QuickBikeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B3526AC7483005AA5C2 /* QuickBikeUITests.swift */; };
+		81D7C948568B665213A5DB03 /* Pods_QuickBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992CFC858CA474A5B494E829 /* Pods_QuickBike.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2EE93B2726AC7483005AA5C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2EE93B0D26AC7482005AA5C2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2EE93B1426AC7482005AA5C2;
-			remoteInfo = QuickBike;
-		};
-		2EE93B3226AC7483005AA5C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2EE93B0D26AC7482005AA5C2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2EE93B1426AC7482005AA5C2;
-			remoteInfo = QuickBike;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		1BD5FE21F86319051C0A8B8E /* Pods-QuickBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike.release.xcconfig"; path = "Target Support Files/Pods-QuickBike/Pods-QuickBike.release.xcconfig"; sourceTree = "<group>"; };
+		25B2C058F19DE5707BF03336 /* Pods-QuickBike-QuickBikeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike-QuickBikeUITests.release.xcconfig"; path = "Target Support Files/Pods-QuickBike-QuickBikeUITests/Pods-QuickBike-QuickBikeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2EE93B1526AC7482005AA5C2 /* QuickBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickBikeApp.swift; sourceTree = "<group>"; };
 		2EE93B1A26AC7482005AA5C2 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EE93B1F26AC7483005AA5C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2EE93B2126AC7483005AA5C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2EE93B2626AC7483005AA5C2 /* QuickBikeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickBikeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EE93B2A26AC7483005AA5C2 /* QuickBikeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickBikeTests.swift; sourceTree = "<group>"; };
-		2EE93B2C26AC7483005AA5C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2EE93B3126AC7483005AA5C2 /* QuickBikeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickBikeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EE93B3526AC7483005AA5C2 /* QuickBikeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickBikeUITests.swift; sourceTree = "<group>"; };
-		2EE93B3726AC7483005AA5C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		411297D8669BA819F9EB2FC7 /* Pods-QuickBikeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBikeTests.release.xcconfig"; path = "Target Support Files/Pods-QuickBikeTests/Pods-QuickBikeTests.release.xcconfig"; sourceTree = "<group>"; };
+		54E3CC609B668F5CB444185A /* Pods_QuickBikeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickBikeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		791234A3430336FFC32E1505 /* Pods-QuickBike-QuickBikeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike-QuickBikeUITests.debug.xcconfig"; path = "Target Support Files/Pods-QuickBike-QuickBikeUITests/Pods-QuickBike-QuickBikeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8A081DDB291D097D4C27EAAF /* Pods_QuickBike_QuickBikeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickBike_QuickBikeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		992CFC858CA474A5B494E829 /* Pods_QuickBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F30DC0AB4ECB6638746069 /* Pods-QuickBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike.debug.xcconfig"; path = "Target Support Files/Pods-QuickBike/Pods-QuickBike.debug.xcconfig"; sourceTree = "<group>"; };
+		E8171FB93F9F2E15E8354D0B /* Pods-QuickBikeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBikeTests.debug.xcconfig"; path = "Target Support Files/Pods-QuickBikeTests/Pods-QuickBikeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,33 +37,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2EE93B2326AC7483005AA5C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2EE93B2E26AC7483005AA5C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				81D7C948568B665213A5DB03 /* Pods_QuickBike.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12C14A4B97C652FF8A5FF015 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8F30DC0AB4ECB6638746069 /* Pods-QuickBike.debug.xcconfig */,
+				1BD5FE21F86319051C0A8B8E /* Pods-QuickBike.release.xcconfig */,
+				791234A3430336FFC32E1505 /* Pods-QuickBike-QuickBikeUITests.debug.xcconfig */,
+				25B2C058F19DE5707BF03336 /* Pods-QuickBike-QuickBikeUITests.release.xcconfig */,
+				E8171FB93F9F2E15E8354D0B /* Pods-QuickBikeTests.debug.xcconfig */,
+				411297D8669BA819F9EB2FC7 /* Pods-QuickBikeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		2EE93B0C26AC7482005AA5C2 = {
 			isa = PBXGroup;
 			children = (
 				2EE93B1726AC7482005AA5C2 /* QuickBike */,
-				2EE93B2926AC7483005AA5C2 /* QuickBikeTests */,
-				2EE93B3426AC7483005AA5C2 /* QuickBikeUITests */,
 				2EE93B1626AC7482005AA5C2 /* Products */,
+				12C14A4B97C652FF8A5FF015 /* Pods */,
+				A443EBF4F7E69AABBD46C4F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,8 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				2EE93B1526AC7482005AA5C2 /* QuickBike.app */,
-				2EE93B2626AC7483005AA5C2 /* QuickBikeTests.xctest */,
-				2EE93B3126AC7483005AA5C2 /* QuickBikeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,22 +95,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		2EE93B2926AC7483005AA5C2 /* QuickBikeTests */ = {
+		A443EBF4F7E69AABBD46C4F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2EE93B2A26AC7483005AA5C2 /* QuickBikeTests.swift */,
-				2EE93B2C26AC7483005AA5C2 /* Info.plist */,
+				992CFC858CA474A5B494E829 /* Pods_QuickBike.framework */,
+				8A081DDB291D097D4C27EAAF /* Pods_QuickBike_QuickBikeUITests.framework */,
+				54E3CC609B668F5CB444185A /* Pods_QuickBikeTests.framework */,
 			);
-			path = QuickBikeTests;
-			sourceTree = "<group>";
-		};
-		2EE93B3426AC7483005AA5C2 /* QuickBikeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2EE93B3526AC7483005AA5C2 /* QuickBikeUITests.swift */,
-				2EE93B3726AC7483005AA5C2 /* Info.plist */,
-			);
-			path = QuickBikeUITests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EE93B3A26AC7483005AA5C2 /* Build configuration list for PBXNativeTarget "QuickBike" */;
 			buildPhases = (
+				1B941DF1AC2713B992C994A8 /* [CP] Check Pods Manifest.lock */,
 				2EE93B1126AC7482005AA5C2 /* Sources */,
 				2EE93B1226AC7482005AA5C2 /* Frameworks */,
 				2EE93B1326AC7482005AA5C2 /* Resources */,
+				D6A3C02F7C6F52BEB12538F6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,42 +126,6 @@
 			productName = QuickBike;
 			productReference = 2EE93B1526AC7482005AA5C2 /* QuickBike.app */;
 			productType = "com.apple.product-type.application";
-		};
-		2EE93B2526AC7483005AA5C2 /* QuickBikeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2EE93B3D26AC7483005AA5C2 /* Build configuration list for PBXNativeTarget "QuickBikeTests" */;
-			buildPhases = (
-				2EE93B2226AC7483005AA5C2 /* Sources */,
-				2EE93B2326AC7483005AA5C2 /* Frameworks */,
-				2EE93B2426AC7483005AA5C2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2EE93B2826AC7483005AA5C2 /* PBXTargetDependency */,
-			);
-			name = QuickBikeTests;
-			productName = QuickBikeTests;
-			productReference = 2EE93B2626AC7483005AA5C2 /* QuickBikeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2EE93B3026AC7483005AA5C2 /* QuickBikeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2EE93B4026AC7483005AA5C2 /* Build configuration list for PBXNativeTarget "QuickBikeUITests" */;
-			buildPhases = (
-				2EE93B2D26AC7483005AA5C2 /* Sources */,
-				2EE93B2E26AC7483005AA5C2 /* Frameworks */,
-				2EE93B2F26AC7483005AA5C2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2EE93B3326AC7483005AA5C2 /* PBXTargetDependency */,
-			);
-			name = QuickBikeUITests;
-			productName = QuickBikeUITests;
-			productReference = 2EE93B3126AC7483005AA5C2 /* QuickBikeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -197,14 +138,6 @@
 				TargetAttributes = {
 					2EE93B1426AC7482005AA5C2 = {
 						CreatedOnToolsVersion = 12.5.1;
-					};
-					2EE93B2526AC7483005AA5C2 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 2EE93B1426AC7482005AA5C2;
-					};
-					2EE93B3026AC7483005AA5C2 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 2EE93B1426AC7482005AA5C2;
 					};
 				};
 			};
@@ -222,8 +155,6 @@
 			projectRoot = "";
 			targets = (
 				2EE93B1426AC7482005AA5C2 /* QuickBike */,
-				2EE93B2526AC7483005AA5C2 /* QuickBikeTests */,
-				2EE93B3026AC7483005AA5C2 /* QuickBikeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,21 +169,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EE93B2426AC7483005AA5C2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2EE93B2F26AC7483005AA5C2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B941DF1AC2713B992C994A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QuickBike-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6A3C02F7C6F52BEB12538F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QuickBike/Pods-QuickBike-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QuickBike/Pods-QuickBike-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QuickBike/Pods-QuickBike-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2EE93B1126AC7482005AA5C2 /* Sources */ = {
@@ -264,36 +223,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EE93B2226AC7483005AA5C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2EE93B2B26AC7483005AA5C2 /* QuickBikeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2EE93B2D26AC7483005AA5C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2EE93B3626AC7483005AA5C2 /* QuickBikeUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2EE93B2826AC7483005AA5C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2EE93B1426AC7482005AA5C2 /* QuickBike */;
-			targetProxy = 2EE93B2726AC7483005AA5C2 /* PBXContainerItemProxy */;
-		};
-		2EE93B3326AC7483005AA5C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2EE93B1426AC7482005AA5C2 /* QuickBike */;
-			targetProxy = 2EE93B3226AC7483005AA5C2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2EE93B3826AC7483005AA5C2 /* Debug */ = {
@@ -414,6 +344,7 @@
 		};
 		2EE93B3B26AC7483005AA5C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8F30DC0AB4ECB6638746069 /* Pods-QuickBike.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -436,6 +367,7 @@
 		};
 		2EE93B3C26AC7483005AA5C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BD5FE21F86319051C0A8B8E /* Pods-QuickBike.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,90 +388,6 @@
 			};
 			name = Release;
 		};
-		2EE93B3E26AC7483005AA5C2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4US87S9GZU;
-				INFOPLIST_FILE = QuickBikeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kahmann.QuickBikeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickBike.app/QuickBike";
-			};
-			name = Debug;
-		};
-		2EE93B3F26AC7483005AA5C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4US87S9GZU;
-				INFOPLIST_FILE = QuickBikeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kahmann.QuickBikeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickBike.app/QuickBike";
-			};
-			name = Release;
-		};
-		2EE93B4126AC7483005AA5C2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4US87S9GZU;
-				INFOPLIST_FILE = QuickBikeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kahmann.QuickBikeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = QuickBike;
-			};
-			name = Debug;
-		};
-		2EE93B4226AC7483005AA5C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4US87S9GZU;
-				INFOPLIST_FILE = QuickBikeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kahmann.QuickBikeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = QuickBike;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -557,24 +405,6 @@
 			buildConfigurations = (
 				2EE93B3B26AC7483005AA5C2 /* Debug */,
 				2EE93B3C26AC7483005AA5C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2EE93B3D26AC7483005AA5C2 /* Build configuration list for PBXNativeTarget "QuickBikeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2EE93B3E26AC7483005AA5C2 /* Debug */,
-				2EE93B3F26AC7483005AA5C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2EE93B4026AC7483005AA5C2 /* Build configuration list for PBXNativeTarget "QuickBikeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2EE93B4126AC7483005AA5C2 /* Debug */,
-				2EE93B4226AC7483005AA5C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

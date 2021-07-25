@@ -33,6 +33,7 @@ struct StartView: View {
 				Text("This is a prototype for collecting data on traffic light phases. The goal is to ...")
 					.padding()
 				Spacer()
+				
 				HStack {
 					Spacer()
 					Button(action: {

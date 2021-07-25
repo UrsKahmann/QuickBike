@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct QuickBikeApp: App {
-    var body: some Scene {
-        WindowGroup {
-            StartView()
-        }
-    }
+	var body: some Scene {
+		WindowGroup {
+			StartView()
+		}
+	}
 }

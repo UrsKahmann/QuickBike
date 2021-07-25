@@ -1,0 +1,6 @@
+framework module Pods_QuickBike {
+  umbrella header "Pods-QuickBike-umbrella.h"
+
+  export *
+  module * { export * }
+}
