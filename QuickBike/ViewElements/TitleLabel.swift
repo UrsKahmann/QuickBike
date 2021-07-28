@@ -10,7 +10,7 @@ import Rswift
 
 struct TitleLabel: View {
 	var body: some View {
-		
+
 		HStack {
 			Text("Quick")
 				.font(.largeTitle)

@@ -1,0 +1,6 @@
+disabled_rules:
+  - identifier_name # doesn't allow variable names shorter than 3 chars
+  - multiple_closures_with_trailing_closure
+excluded:
+  - Pods
+  - "**/*/R.generated.swift"

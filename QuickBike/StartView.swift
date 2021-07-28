@@ -9,7 +9,7 @@ import SwiftUI
 import Rswift
 
 struct StartView: View {
-	
+
 	private var aboutInfoBox: some View {
 		VStack(alignment: .leading) {
 			Text(R.string.localizable.startInfoBoxHeader())
@@ -22,7 +22,7 @@ struct StartView: View {
 		}
 		.padding()
 	}
-	
+
 	private var startDataCollectionButton: some View {
 		HStack {
 			Spacer()
@@ -40,9 +40,9 @@ struct StartView: View {
 			Spacer()
 		}
 	}
-	
+
 	var body: some View {
-		
+
 		NavigationView {
 			VStack(alignment: .center) {
 				TitleLabel()

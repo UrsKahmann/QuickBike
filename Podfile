@@ -7,5 +7,6 @@ target 'QuickBike' do
 
   # Pods for QuickBike
   pod 'R.swift'
+  pod 'SwiftLint'
 
 end

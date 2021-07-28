@@ -8,13 +8,13 @@
 import Foundation
 
 class StopLocationTrackingUseCase {
-	
+
 	private let locationRepository: LocationRepository
-	
+
 	init(locationRepository: LocationRepository) {
 		self.locationRepository = locationRepository
 	}
-	
+
 	func stop() {
 		self.locationRepository.stopLocationTracking()
 	}

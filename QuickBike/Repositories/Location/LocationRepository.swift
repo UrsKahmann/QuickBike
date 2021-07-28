@@ -16,17 +16,17 @@ protocol LocationRepository {
 }
 
 struct RealLocationRepository: LocationRepository {
-	
+
 	private let locationService: LocationService = LocationService()
-	
+
 	func startLocationTracking() {
 		self.locationService.startLocationDataCollection()
 	}
-	
+
 	func stopLocationTracking() {
 		self.locationService.stopLocationDataCollection()
 	}
-	
+
 	func getLocations() -> AnyPublisher<UserCoordinate, Never> {
 		return self.locationService
 			.$location
@@ -34,7 +34,7 @@ struct RealLocationRepository: LocationRepository {
 				guard let location = location else {
 					return UserCoordinate(latitude: 0, longitude: 0)
 				}
-				
+
 				return UserCoordinate(
 					latitude: location.coordinate.latitude,
 					longitude: location.coordinate.longitude

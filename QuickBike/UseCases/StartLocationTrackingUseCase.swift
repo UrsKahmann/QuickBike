@@ -8,13 +8,13 @@
 import Foundation
 
 class StartLocationTrackingUseCase {
-	
+
 	private let locationRepository: LocationRepository
-	
+
 	init(locationRepository: LocationRepository) {
 		self.locationRepository = locationRepository
 	}
-	
+
 	func start() {
 		self.locationRepository.startLocationTracking()
 	}

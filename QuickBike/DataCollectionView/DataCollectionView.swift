@@ -10,21 +10,23 @@ import Rswift
 import MapKit
 
 struct DataCollectionView: View {
-	
+
 	@Environment(\.presentationMode) var presentationMode
-	
+
 	@ObservedObject var viewModel = DataCollectionViewModel()
 
 	var body: some View {
-		
+
 		VStack(alignment: .center) {
 			TitleLabel()
 			Text("Current Location:")
 			Text("Latitude: \(self.viewModel.currentLocation?.latitude ?? 0)")
 			Text("Longitude: \(self.viewModel.currentLocation?.longitude ?? 0)")
 			Map(coordinateRegion: self.$viewModel.region, annotationItems: self.viewModel.annontationItems()) {
-				//MapPin(coordinate: CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude))
-				MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude), anchorPoint: CGPoint.zero, content: {
+				MapAnnotation(
+					coordinate: CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude),
+					anchorPoint: CGPoint.zero,
+					content: {
 						Circle()
 							.stroke(lineWidth: 5)
 							.foregroundColor(.green)
@@ -50,7 +52,7 @@ struct DataCollectionView: View {
 				Spacer()
 			}
 		}.navigationBarHidden(true)
-		.onAppear() {
+		.onAppear {
 			self.viewModel.startLocationTracking()
 		}
 	}
