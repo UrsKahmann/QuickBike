@@ -7,27 +7,29 @@
 
 import SwiftUI
 import Rswift
+import MapKit
 
 struct DataCollectionView: View {
 	
 	@Environment(\.presentationMode) var presentationMode
 	
 	@ObservedObject var viewModel = DataCollectionViewModel()
-	
-	private var locationString: String {
-		guard let location = self.viewModel.location else {
-			return "Location not availabel!"
-		}
-		
-		return "Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)"
-	}
 
 	var body: some View {
 		
 		VStack(alignment: .center) {
 			TitleLabel()
 			Text("Current Location:")
-			Text("\(self.locationString)")
+			Text("Latitude: \(self.viewModel.currentLocation?.latitude ?? 0)")
+			Text("Longitude: \(self.viewModel.currentLocation?.longitude ?? 0)")
+			Map(coordinateRegion: self.$viewModel.region, annotationItems: self.viewModel.annontationItems()) {
+				//MapPin(coordinate: CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude))
+				MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude), anchorPoint: CGPoint.zero, content: {
+						Circle()
+							.stroke(lineWidth: 5)
+							.foregroundColor(.green)
+				})
+			}
 			Spacer()
 			HStack {
 				Spacer()

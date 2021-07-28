@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2E43B6AC26ADE22A0046DFB7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43B6AB26ADE22A0046DFB7 /* LocationService.swift */; };
 		2E43B6AF26ADEDBB0046DFB7 /* DataCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */; };
+		2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */; };
+		2ED2E0AA26AEB888008D719B /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0A926AEB888008D719B /* LocationRepository.swift */; };
+		2ED2E0AD26AEE177008D719B /* UserCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0AC26AEE177008D719B /* UserCoordinate.swift */; };
+		2ED2E0AF26B01612008D719B /* GetLocationUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0AE26B01612008D719B /* GetLocationUserCase.swift */; };
+		2ED2E0B126B01926008D719B /* StopLocationTrackingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0B026B01926008D719B /* StopLocationTrackingUseCase.swift */; };
+		2ED2E0B426B04A12008D719B /* TestLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0B326B04A12008D719B /* TestLocationRepository.swift */; };
 		2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */; };
 		2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B1A26AC7482005AA5C2 /* StartView.swift */; };
 		2EE93B1D26AC7483005AA5C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */; };
@@ -25,6 +31,12 @@
 		25B2C058F19DE5707BF03336 /* Pods-QuickBike-QuickBikeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike-QuickBikeUITests.release.xcconfig"; path = "Target Support Files/Pods-QuickBike-QuickBikeUITests/Pods-QuickBike-QuickBikeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2E43B6AB26ADE22A0046DFB7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewModel.swift; sourceTree = "<group>"; };
+		2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartLocationTrackingUseCase.swift; sourceTree = "<group>"; };
+		2ED2E0A926AEB888008D719B /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
+		2ED2E0AC26AEE177008D719B /* UserCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinate.swift; sourceTree = "<group>"; };
+		2ED2E0AE26B01612008D719B /* GetLocationUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationUserCase.swift; sourceTree = "<group>"; };
+		2ED2E0B026B01926008D719B /* StopLocationTrackingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopLocationTrackingUseCase.swift; sourceTree = "<group>"; };
+		2ED2E0B326B04A12008D719B /* TestLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocationRepository.swift; sourceTree = "<group>"; };
 		2EE93B1526AC7482005AA5C2 /* QuickBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickBikeApp.swift; sourceTree = "<group>"; };
 		2EE93B1A26AC7482005AA5C2 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -86,6 +98,41 @@
 			path = DataCollectionView;
 			sourceTree = "<group>";
 		};
+		2ED2E0A526AEB829008D719B /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */,
+				2ED2E0B026B01926008D719B /* StopLocationTrackingUseCase.swift */,
+				2ED2E0AE26B01612008D719B /* GetLocationUserCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		2ED2E0A826AEB872008D719B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2E0B226B049F8008D719B /* Location */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		2ED2E0AB26AEE152008D719B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2E0AC26AEE177008D719B /* UserCoordinate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2ED2E0B226B049F8008D719B /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2E0A926AEB888008D719B /* LocationRepository.swift */,
+				2ED2E0B326B04A12008D719B /* TestLocationRepository.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		2EE93B0C26AC7482005AA5C2 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +154,9 @@
 		2EE93B1726AC7482005AA5C2 /* QuickBike */ = {
 			isa = PBXGroup;
 			children = (
+				2ED2E0AB26AEE152008D719B /* Model */,
+				2ED2E0A826AEB872008D719B /* Repositories */,
+				2ED2E0A526AEB829008D719B /* UseCases */,
 				2EE93B4B26AD8171005AA5C2 /* Generated */,
 				2E43B6AA26ADE2190046DFB7 /* LocationService */,
 				2E43B6AD26ADED920046DFB7 /* DataCollectionView */,
@@ -289,11 +339,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ED2E0AD26AEE177008D719B /* UserCoordinate.swift in Sources */,
+				2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */,
 				2EE93B4F26AD87C3005AA5C2 /* DataCollectionView.swift in Sources */,
+				2ED2E0AF26B01612008D719B /* GetLocationUserCase.swift in Sources */,
 				2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */,
+				2ED2E0AA26AEB888008D719B /* LocationRepository.swift in Sources */,
+				2ED2E0B426B04A12008D719B /* TestLocationRepository.swift in Sources */,
 				2E43B6AC26ADE22A0046DFB7 /* LocationService.swift in Sources */,
 				2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */,
 				2EE93B5226AD926E005AA5C2 /* TitleLabel.swift in Sources */,
+				2ED2E0B126B01926008D719B /* StopLocationTrackingUseCase.swift in Sources */,
 				2E43B6AF26ADEDBB0046DFB7 /* DataCollectionViewModel.swift in Sources */,
 				2EE93B4D26AD8254005AA5C2 /* R.generated.swift in Sources */,
 			);

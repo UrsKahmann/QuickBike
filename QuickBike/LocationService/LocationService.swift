@@ -45,10 +45,8 @@ extension LocationService: CLLocationManagerDelegate {
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		guard let location = locations.last else {
-			return
+		if let current = locations.last {
+			self.location = current
 		}
-		self.location = location
-		print("Updated location to: latitude: \(location.coordinate.latitude), logitude: \(location.coordinate.longitude) ")
 	}
 }
