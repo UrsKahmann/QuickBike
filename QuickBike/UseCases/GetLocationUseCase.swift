@@ -1,5 +1,5 @@
 //
-//  GetLocationUserCase.swift
+//  GetLocationUseCase.swift
 //  QuickBike
 //
 //  Created by Urs Privat on 27.07.21.

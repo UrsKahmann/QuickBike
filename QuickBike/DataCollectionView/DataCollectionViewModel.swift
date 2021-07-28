@@ -12,8 +12,6 @@ import MapKit
 
 class DataCollectionViewModel: ObservableObject {
 
-	private let locationRepository = TestLocationRepository() //RealLocationRepository()
-
 	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
 	private let stopLocationTrackingUseCase: StopLocationTrackingUseCase
 	private let getLocationDataUseCase: GetLocationUseCase
@@ -23,33 +21,34 @@ class DataCollectionViewModel: ObservableObject {
 
 	private var cancallable = Set<AnyCancellable>()
 
-	init() {
+	init(
+		startUseCase: StartLocationTrackingUseCase,
+		stopUseCase: StopLocationTrackingUseCase,
+		getUseCase: GetLocationUseCase) {
 
-		self.startLocationTrackingUseCase = StartLocationTrackingUseCase(locationRepository: self.locationRepository)
+			self.startLocationTrackingUseCase = startUseCase
+			self.stopLocationTrackingUseCase = stopUseCase
+			self.getLocationDataUseCase = getUseCase
 
-		self.stopLocationTrackingUseCase = StopLocationTrackingUseCase(locationRepository: self.locationRepository)
+			self.getLocationDataUseCase
+				.$currentLocation
+				.sink(receiveValue: { (current: UserCoordinate) in
 
-		self.getLocationDataUseCase = GetLocationUseCase(locationRepository: self.locationRepository)
+					self.currentLocation = current
 
-		self.getLocationDataUseCase
-			.$currentLocation
-			.sink(receiveValue: { (current: UserCoordinate) in
+					let center = CLLocationCoordinate2D(
+						latitude: current.latitude,
+						longitude: current.longitude
+					)
 
-				self.currentLocation = current
+					let span = MKCoordinateSpan(
+						latitudeDelta: 0.005,
+						longitudeDelta: 0.005
+					)
 
-				let center = CLLocationCoordinate2D(
-					latitude: current.latitude,
-					longitude: current.longitude
-				)
-
-				let span = MKCoordinateSpan(
-					latitudeDelta: 0.005,
-					longitudeDelta: 0.005
-				)
-
-				self.region = MKCoordinateRegion(center: center, span: span)
-			})
-			.store(in: &cancallable)
+					self.region = MKCoordinateRegion(center: center, span: span)
+				})
+				.store(in: &cancallable)
 	}
 
 	func annontationItems() -> [UserCoordinate] {

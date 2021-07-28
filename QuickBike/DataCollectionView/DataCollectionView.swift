@@ -13,7 +13,7 @@ struct DataCollectionView: View {
 
 	@Environment(\.presentationMode) var presentationMode
 
-	@ObservedObject var viewModel = DataCollectionViewModel()
+	@ObservedObject var viewModel = ViewModelFactory.shared.dataCollectionViewModel
 
 	var body: some View {
 

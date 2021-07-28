@@ -29,6 +29,7 @@ class LocationService: NSObject, ObservableObject {
 	}
 
 	func startLocationDataCollection() {
+		print("Started location tracking")
 		self.locationManager.startUpdatingLocation()
 	}
 

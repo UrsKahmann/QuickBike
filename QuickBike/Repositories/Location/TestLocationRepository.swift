@@ -51,6 +51,10 @@ class TestLocationRepository: LocationRepository {
 
 		return coordinatePublisher.map { (coordinate: UserCoordinate, _ : Date) in
 			return coordinate
-		}.eraseToAnyPublisher()
+		}
+		.filter({ _ in
+			return self.emitting
+		})
+		.eraseToAnyPublisher()
 	}
 }
