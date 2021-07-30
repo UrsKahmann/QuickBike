@@ -1,19 +1,19 @@
 //
-//  GetLocationUseCase.swift
+//  CheckForHaltUserCase.swift
 //  QuickBike
 //
-//  Created by Urs Privat on 27.07.21.
+//  Created by Urs Privat on 30.07.21.
 //
 
 import Foundation
 import Combine
 
-class GetLocationUseCase {
+class CheckForHaltUseCase {
 
 	private let locationRepository: LocationRepository
+	private var motionDetector = MotionDetector()
 
-	@Published var currentLocation: UserCoordinate = UserCoordinate(latitude: 0, longitude: 0)
-	@Published var locationError: Error?
+	@Published var didHalt = false
 
 	private var cancellable = Set<AnyCancellable>()
 
@@ -25,11 +25,11 @@ class GetLocationUseCase {
 			.sink(receiveCompletion: { [weak self] (completion: Subscribers.Completion<Error>) in
 				switch completion {
 				case .finished: break
-				case .failure(let error):
-					self?.locationError = error
+				case .failure(_):
+					self?.didHalt = false
 				}
 			}, receiveValue: { (current: UserCoordinate) in
-				self.currentLocation = current
+				self.didHalt = self.motionDetector.checkIfStanding(with: current)
 			})
 			.store(in: &cancellable)
 	}

@@ -15,6 +15,15 @@ struct UserCoordinate: Identifiable {
 	var debugDescription: String {
 		return "ID: \(self.id) | lat: \(self.latitude) | long: \(self.longitude)"
 	}
+
+	func distance(to otherCoordinate: UserCoordinate) -> Double {
+		let distance = sqrt(
+			pow(self.latitude - otherCoordinate.latitude, 2) +
+			pow(self.longitude - otherCoordinate.longitude, 2)
+		)
+
+		return distance
+	}
 }
 
 extension UserCoordinate {

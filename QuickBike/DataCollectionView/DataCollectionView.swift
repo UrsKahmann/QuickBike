@@ -55,6 +55,13 @@ struct DataCollectionView: View {
 		.onAppear {
 			self.viewModel.startLocationTracking()
 		}
+		.alert(isPresented: self.$viewModel.didStop) {
+			Alert(
+				title: Text("You stopped!"),
+				message: Text("Did you stop at a red light?"),
+				dismissButton: .default(Text("YES!"))
+			)
+		}
 	}
 }
 

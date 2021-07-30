@@ -15,40 +15,55 @@ class DataCollectionViewModel: ObservableObject {
 	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
 	private let stopLocationTrackingUseCase: StopLocationTrackingUseCase
 	private let getLocationDataUseCase: GetLocationUseCase
+	private let checkForHaltUseCase: CheckForHaltUseCase
 
 	@Published var currentLocation: UserCoordinate?
 	@Published var region: MKCoordinateRegion = MKCoordinateRegion()
+	@Published var didStop: Bool = false
 
 	private var cancellable = Set<AnyCancellable>()
 
 	init(
 		startUseCase: StartLocationTrackingUseCase,
 		stopUseCase: StopLocationTrackingUseCase,
-		getUseCase: GetLocationUseCase) {
+		getUseCase: GetLocationUseCase,
+		haltUseCase: CheckForHaltUseCase) {
 
 			self.startLocationTrackingUseCase = startUseCase
 			self.stopLocationTrackingUseCase = stopUseCase
 			self.getLocationDataUseCase = getUseCase
+			self.checkForHaltUseCase = haltUseCase
 
-			self.getLocationDataUseCase
-				.$currentLocation
-				.sink(receiveValue: { (current: UserCoordinate) in
+			self.creatBindings()
+	}
 
-					self.currentLocation = current
+	private func creatBindings() {
 
-					let center = CLLocationCoordinate2D(
-						latitude: current.latitude,
-						longitude: current.longitude
-					)
+		self.checkForHaltUseCase
+			.$didHalt
+			.sink { (didHalt: Bool) in
+				self.didStop = didHalt
+			}
+			.store(in: &cancellable)
+		self.getLocationDataUseCase
+			.$currentLocation
+			.sink { (current: UserCoordinate) in
 
-					let span = MKCoordinateSpan(
-						latitudeDelta: 0.005,
-						longitudeDelta: 0.005
-					)
+				self.currentLocation = current
 
-					self.region = MKCoordinateRegion(center: center, span: span)
-				})
-				.store(in: &cancellable)
+				let center = CLLocationCoordinate2D(
+					latitude: current.latitude,
+					longitude: current.longitude
+				)
+
+				let span = MKCoordinateSpan(
+					latitudeDelta: 0.005,
+					longitudeDelta: 0.005
+				)
+
+				self.region = MKCoordinateRegion(center: center, span: span)
+			}
+			.store(in: &cancellable)
 	}
 
 	func annontationItems() -> [UserCoordinate] {

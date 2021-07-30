@@ -28,11 +28,11 @@ class MockLocationService: LocationProvider {
 			let new = start + (directionVektor * (Double(i) / 100.0))
 			data.append(new)
 
-			if i == 50 {
-				for j in 1...20 {
+			if i == 10 {
+				for j in 1...10 {
 					let standing = new + CLLocation(
-						latitude: Double.random(in: 0.00001...0.00005),
-						longitude: Double.random(in: 0.00001...0.00005)
+						latitude: Double.random(in: 0.0000001...0.0000005),
+						longitude: Double.random(in: 0.0000001...0.0000005)
 					)
 
 					data.append(standing)

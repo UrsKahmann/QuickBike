@@ -19,6 +19,7 @@ struct ViewModelFactory {
 	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
 	private let stopLocationTrackingUseCase: StopLocationTrackingUseCase
 	private let getLocationDataUseCase: GetLocationUseCase
+	private let checkForHaltUseCase: CheckForHaltUseCase
 
 	// ViewModels
 	let dataCollectionViewModel: DataCollectionViewModel
@@ -26,13 +27,16 @@ struct ViewModelFactory {
 	init() {
 		// Init repostiories
 		self.locationRepository = RealLocationRepository(locationProvider: self.locationProvider)
+
 		self.startLocationTrackingUseCase = StartLocationTrackingUseCase(locationRepository: self.locationRepository)
 		self.stopLocationTrackingUseCase = StopLocationTrackingUseCase(locationRepository: self.locationRepository)
 		self.getLocationDataUseCase = GetLocationUseCase(locationRepository: self.locationRepository)
+		self.checkForHaltUseCase = CheckForHaltUseCase(locationRepository: self.locationRepository)
 
 		self.dataCollectionViewModel = DataCollectionViewModel(
 			startUseCase: self.startLocationTrackingUseCase,
 			stopUseCase: self.stopLocationTrackingUseCase,
-			getUseCase: self.getLocationDataUseCase)
+			getUseCase: self.getLocationDataUseCase,
+			haltUseCase: self.checkForHaltUseCase)
 	}
 }

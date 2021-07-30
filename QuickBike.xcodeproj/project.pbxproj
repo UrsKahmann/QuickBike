@@ -15,9 +15,10 @@
 		2ED2E0AF26B01612008D719B /* GetLocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0AE26B01612008D719B /* GetLocationUseCase.swift */; };
 		2ED2E0B126B01926008D719B /* StopLocationTrackingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0B026B01926008D719B /* StopLocationTrackingUseCase.swift */; };
 		2ED2E0B726B1A590008D719B /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0B626B1A590008D719B /* ViewModelFactory.swift */; };
-		2ED2E0BA26B1AAFC008D719B /* TrafficLightDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0B926B1AAFC008D719B /* TrafficLightDetector.swift */; };
+		2ED2E0BA26B1AAFC008D719B /* MotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0B926B1AAFC008D719B /* MotionDetector.swift */; };
 		2ED2E0BD26B32554008D719B /* MockLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0BC26B32554008D719B /* MockLocationService.swift */; };
 		2ED2E0C026B32E77008D719B /* CLLocation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0BF26B32E77008D719B /* CLLocation+Extension.swift */; };
+		2ED2E0C226B461F0008D719B /* CheckForHaltUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0C126B461F0008D719B /* CheckForHaltUserCase.swift */; };
 		2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */; };
 		2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE93B1A26AC7482005AA5C2 /* StartView.swift */; };
 		2EE93B1D26AC7483005AA5C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE93B1C26AC7483005AA5C2 /* Assets.xcassets */; };
@@ -40,9 +41,10 @@
 		2ED2E0AE26B01612008D719B /* GetLocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationUseCase.swift; sourceTree = "<group>"; };
 		2ED2E0B026B01926008D719B /* StopLocationTrackingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopLocationTrackingUseCase.swift; sourceTree = "<group>"; };
 		2ED2E0B626B1A590008D719B /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
-		2ED2E0B926B1AAFC008D719B /* TrafficLightDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightDetector.swift; sourceTree = "<group>"; };
+		2ED2E0B926B1AAFC008D719B /* MotionDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDetector.swift; sourceTree = "<group>"; };
 		2ED2E0BC26B32554008D719B /* MockLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationService.swift; sourceTree = "<group>"; };
 		2ED2E0BF26B32E77008D719B /* CLLocation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extension.swift"; sourceTree = "<group>"; };
+		2ED2E0C126B461F0008D719B /* CheckForHaltUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForHaltUserCase.swift; sourceTree = "<group>"; };
 		2EE93B1526AC7482005AA5C2 /* QuickBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE93B1826AC7482005AA5C2 /* QuickBikeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickBikeApp.swift; sourceTree = "<group>"; };
 		2EE93B1A26AC7482005AA5C2 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */,
 				2ED2E0B026B01926008D719B /* StopLocationTrackingUseCase.swift */,
 				2ED2E0AE26B01612008D719B /* GetLocationUseCase.swift */,
+				2ED2E0C126B461F0008D719B /* CheckForHaltUserCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -143,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				2ED2E0AB26AEE152008D719B /* Models */,
-				2ED2E0B926B1AAFC008D719B /* TrafficLightDetector.swift */,
+				2ED2E0B926B1AAFC008D719B /* MotionDetector.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -393,8 +396,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ED2E0AD26AEE177008D719B /* UserCoordinate.swift in Sources */,
-				2ED2E0BA26B1AAFC008D719B /* TrafficLightDetector.swift in Sources */,
+				2ED2E0BA26B1AAFC008D719B /* MotionDetector.swift in Sources */,
 				2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */,
+				2ED2E0C226B461F0008D719B /* CheckForHaltUserCase.swift in Sources */,
 				2EE93B4F26AD87C3005AA5C2 /* DataCollectionView.swift in Sources */,
 				2ED2E0C026B32E77008D719B /* CLLocation+Extension.swift in Sources */,
 				2ED2E0AF26B01612008D719B /* GetLocationUseCase.swift in Sources */,
