@@ -12,29 +12,29 @@ import CoreLocation
 protocol LocationRepository {
 	func startLocationTracking()
 	func stopLocationTracking()
-	func getLocations() -> AnyPublisher<UserCoordinate, Never>
+	func getLocations() -> AnyPublisher<UserCoordinate, Error>
 }
 
 struct RealLocationRepository: LocationRepository {
 
-	private let locationService: LocationService = LocationService()
+	private let locationService: LocationProvider
+
+	init(locationProvider: LocationProvider = LocationService()) {
+		self.locationService = locationProvider
+	}
 
 	func startLocationTracking() {
-		self.locationService.startLocationDataCollection()
+		self.locationService.startLocationTracking()
 	}
 
 	func stopLocationTracking() {
-		self.locationService.stopLocationDataCollection()
+		self.locationService.stopLocationTracking()
 	}
 
-	func getLocations() -> AnyPublisher<UserCoordinate, Never> {
+	func getLocations() -> AnyPublisher<UserCoordinate, Error> {
 		return self.locationService
-			.$location
-			.map { (location: CLLocation?) -> UserCoordinate in
-				guard let location = location else {
-					return UserCoordinate(latitude: 0, longitude: 0)
-				}
-
+			.location
+			.compactMap { (location: CLLocation) -> UserCoordinate in
 				return UserCoordinate(
 					latitude: location.coordinate.latitude,
 					longitude: location.coordinate.longitude

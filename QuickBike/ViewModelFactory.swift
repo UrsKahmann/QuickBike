@@ -10,8 +10,10 @@ import Foundation
 struct ViewModelFactory {
 	static let shared = ViewModelFactory()
 
+	private let locationProvider = MockLocationService()
+
 	// Init repostiories
-	private let locationRepository = TestLocationRepository() //RealLocationRepository()
+	private let locationRepository: LocationRepository
 
 	// Use Cases
 	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
@@ -22,6 +24,8 @@ struct ViewModelFactory {
 	let dataCollectionViewModel: DataCollectionViewModel
 
 	init() {
+		// Init repostiories
+		self.locationRepository = RealLocationRepository(locationProvider: self.locationProvider)
 		self.startLocationTrackingUseCase = StartLocationTrackingUseCase(locationRepository: self.locationRepository)
 		self.stopLocationTrackingUseCase = StopLocationTrackingUseCase(locationRepository: self.locationRepository)
 		self.getLocationDataUseCase = GetLocationUseCase(locationRepository: self.locationRepository)

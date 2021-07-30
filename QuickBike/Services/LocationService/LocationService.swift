@@ -9,12 +9,17 @@ import Foundation
 import CoreLocation
 import Combine
 
-class LocationService: NSObject, ObservableObject {
+protocol LocationProvider {
+	var location: PassthroughSubject<CLLocation, Error> { get }
+	func startLocationTracking()
+	func stopLocationTracking()
+}
+
+class LocationService: NSObject, ObservableObject, LocationProvider {
 
 	private let locationManager = CLLocationManager()
 
-	@Published var location: CLLocation?
-	@Published var error: Error?
+	let location = PassthroughSubject<CLLocation, Error>()
 
 	override init() {
 		super.init()
@@ -28,12 +33,11 @@ class LocationService: NSObject, ObservableObject {
 		}
 	}
 
-	func startLocationDataCollection() {
-		print("Started location tracking")
+	func startLocationTracking() {
 		self.locationManager.startUpdatingLocation()
 	}
 
-	func stopLocationDataCollection() {
+	func stopLocationTracking() {
 		self.locationManager.stopUpdatingLocation()
 	}
 }
@@ -42,12 +46,12 @@ extension LocationService: CLLocationManagerDelegate {
 
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		print("Location manager did fail: \(error.localizedDescription)")
-		self.error = error
+		self.location.send(completion: .failure(error))
 	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		if let current = locations.last {
-			self.location = current
+			self.location.send(current)
 		}
 	}
 }

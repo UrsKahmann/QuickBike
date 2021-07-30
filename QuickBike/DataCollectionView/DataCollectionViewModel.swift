@@ -19,7 +19,7 @@ class DataCollectionViewModel: ObservableObject {
 	@Published var currentLocation: UserCoordinate?
 	@Published var region: MKCoordinateRegion = MKCoordinateRegion()
 
-	private var cancallable = Set<AnyCancellable>()
+	private var cancellable = Set<AnyCancellable>()
 
 	init(
 		startUseCase: StartLocationTrackingUseCase,
@@ -48,7 +48,7 @@ class DataCollectionViewModel: ObservableObject {
 
 					self.region = MKCoordinateRegion(center: center, span: span)
 				})
-				.store(in: &cancallable)
+				.store(in: &cancellable)
 	}
 
 	func annontationItems() -> [UserCoordinate] {
