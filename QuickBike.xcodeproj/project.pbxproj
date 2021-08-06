@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		2E43B6AC26ADE22A0046DFB7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43B6AB26ADE22A0046DFB7 /* LocationService.swift */; };
 		2E43B6AF26ADEDBB0046DFB7 /* DataCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */; };
+		2E6FE88126BD791B0097C170 /* TrafficLightRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE88026BD791B0097C170 /* TrafficLightRecording.swift */; };
 		2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */; };
 		2ED2E0AA26AEB888008D719B /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0A926AEB888008D719B /* LocationRepository.swift */; };
-		2ED2E0AD26AEE177008D719B /* UserCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0AC26AEE177008D719B /* UserCoordinate.swift */; };
+		2ED2E0AD26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0AC26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift */; };
 		2ED2E0AF26B01612008D719B /* GetLocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0AE26B01612008D719B /* GetLocationUseCase.swift */; };
 		2ED2E0B126B01926008D719B /* StopLocationTrackingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0B026B01926008D719B /* StopLocationTrackingUseCase.swift */; };
 		2ED2E0B726B1A590008D719B /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0B626B1A590008D719B /* ViewModelFactory.swift */; };
@@ -35,9 +36,10 @@
 		25B2C058F19DE5707BF03336 /* Pods-QuickBike-QuickBikeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickBike-QuickBikeUITests.release.xcconfig"; path = "Target Support Files/Pods-QuickBike-QuickBikeUITests/Pods-QuickBike-QuickBikeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2E43B6AB26ADE22A0046DFB7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewModel.swift; sourceTree = "<group>"; };
+		2E6FE88026BD791B0097C170 /* TrafficLightRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightRecording.swift; sourceTree = "<group>"; };
 		2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartLocationTrackingUseCase.swift; sourceTree = "<group>"; };
 		2ED2E0A926AEB888008D719B /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
-		2ED2E0AC26AEE177008D719B /* UserCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinate.swift; sourceTree = "<group>"; };
+		2ED2E0AC26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extension.swift"; sourceTree = "<group>"; };
 		2ED2E0AE26B01612008D719B /* GetLocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationUseCase.swift; sourceTree = "<group>"; };
 		2ED2E0B026B01926008D719B /* StopLocationTrackingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopLocationTrackingUseCase.swift; sourceTree = "<group>"; };
 		2ED2E0B626B1A590008D719B /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
@@ -129,7 +131,7 @@
 		2ED2E0AB26AEE152008D719B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2ED2E0AC26AEE177008D719B /* UserCoordinate.swift */,
+				2E6FE88026BD791B0097C170 /* TrafficLightRecording.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +164,7 @@
 		2ED2E0BE26B32E62008D719B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2ED2E0AC26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift */,
 				2ED2E0BF26B32E77008D719B /* CLLocation+Extension.swift */,
 			);
 			path = Extensions;
@@ -395,7 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ED2E0AD26AEE177008D719B /* UserCoordinate.swift in Sources */,
+				2ED2E0AD26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift in Sources */,
 				2ED2E0BA26B1AAFC008D719B /* MotionDetector.swift in Sources */,
 				2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */,
 				2ED2E0C226B461F0008D719B /* CheckForHaltUserCase.swift in Sources */,
@@ -403,6 +406,7 @@
 				2ED2E0C026B32E77008D719B /* CLLocation+Extension.swift in Sources */,
 				2ED2E0AF26B01612008D719B /* GetLocationUseCase.swift in Sources */,
 				2EE93B1B26AC7482005AA5C2 /* StartView.swift in Sources */,
+				2E6FE88126BD791B0097C170 /* TrafficLightRecording.swift in Sources */,
 				2ED2E0AA26AEB888008D719B /* LocationRepository.swift in Sources */,
 				2E43B6AC26ADE22A0046DFB7 /* LocationService.swift in Sources */,
 				2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */,

@@ -28,7 +28,7 @@ class CheckForHaltUseCase {
 				case .failure(_):
 					self?.didHalt = false
 				}
-			}, receiveValue: { (current: UserCoordinate) in
+			}, receiveValue: { (current: Coordinate) in
 				self.didHalt = self.motionDetector.checkIfStanding(with: current)
 			})
 			.store(in: &cancellable)

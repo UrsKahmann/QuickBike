@@ -24,7 +24,7 @@ struct DataCollectionView: View {
 			Text("Longitude: \(self.viewModel.currentLocation?.longitude ?? 0)")
 			Map(coordinateRegion: self.$viewModel.region, annotationItems: self.viewModel.annontationItems()) {
 				MapAnnotation(
-					coordinate: CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude),
+					coordinate: Coordinate(latitude: $0.latitude, longitude: $0.longitude),
 					anchorPoint: CGPoint.zero,
 					content: {
 						Circle()

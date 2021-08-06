@@ -14,9 +14,9 @@ struct MotionDetector {
 	}
 
 	private var accumulatedDistance = 0.0
-	private var lastCoordinate: UserCoordinate?
+	private var lastCoordinate: Coordinate?
 
-	mutating func checkIfStanding(with coordinate: UserCoordinate) -> Bool {
+	mutating func checkIfStanding(with coordinate: Coordinate) -> Bool {
 		guard let lastCoordinate = self.lastCoordinate else {
 			self.lastCoordinate = coordinate
 			return false

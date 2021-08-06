@@ -17,7 +17,7 @@ class DataCollectionViewModel: ObservableObject {
 	private let getLocationDataUseCase: GetLocationUseCase
 	private let checkForHaltUseCase: CheckForHaltUseCase
 
-	@Published var currentLocation: UserCoordinate?
+	@Published var currentLocation: Coordinate?
 	@Published var region: MKCoordinateRegion = MKCoordinateRegion()
 	@Published var didStop: Bool = false
 
@@ -47,11 +47,11 @@ class DataCollectionViewModel: ObservableObject {
 			.store(in: &cancellable)
 		self.getLocationDataUseCase
 			.$currentLocation
-			.sink { (current: UserCoordinate) in
+			.sink { (current: Coordinate) in
 
 				self.currentLocation = current
 
-				let center = CLLocationCoordinate2D(
+				let center = Coordinate(
 					latitude: current.latitude,
 					longitude: current.longitude
 				)
@@ -66,7 +66,7 @@ class DataCollectionViewModel: ObservableObject {
 			.store(in: &cancellable)
 	}
 
-	func annontationItems() -> [UserCoordinate] {
+	func annontationItems() -> [Coordinate] {
 		if let current = self.currentLocation {
 			return [current]
 		}

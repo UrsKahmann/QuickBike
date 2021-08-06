@@ -12,7 +12,7 @@ class GetLocationUseCase {
 
 	private let locationRepository: LocationRepository
 
-	@Published var currentLocation: UserCoordinate = UserCoordinate(latitude: 0, longitude: 0)
+	@Published var currentLocation: Coordinate = Coordinate(latitude: 0, longitude: 0)
 	@Published var locationError: Error?
 
 	private var cancellable = Set<AnyCancellable>()
@@ -28,7 +28,7 @@ class GetLocationUseCase {
 				case .failure(let error):
 					self?.locationError = error
 				}
-			}, receiveValue: { (current: UserCoordinate) in
+			}, receiveValue: { (current: Coordinate) in
 				self.currentLocation = current
 			})
 			.store(in: &cancellable)

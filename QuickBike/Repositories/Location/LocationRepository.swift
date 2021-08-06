@@ -12,7 +12,7 @@ import CoreLocation
 protocol LocationRepository {
 	func startLocationTracking()
 	func stopLocationTracking()
-	func getLocations() -> AnyPublisher<UserCoordinate, Error>
+	func getLocations() -> AnyPublisher<Coordinate, Error>
 }
 
 struct RealLocationRepository: LocationRepository {
@@ -31,11 +31,11 @@ struct RealLocationRepository: LocationRepository {
 		self.locationService.stopLocationTracking()
 	}
 
-	func getLocations() -> AnyPublisher<UserCoordinate, Error> {
+	func getLocations() -> AnyPublisher<Coordinate, Error> {
 		return self.locationService
 			.location
-			.compactMap { (location: CLLocation) -> UserCoordinate in
-				return UserCoordinate(
+			.compactMap { (location: CLLocation) -> Coordinate in
+				return Coordinate(
 					latitude: location.coordinate.latitude,
 					longitude: location.coordinate.longitude
 				)
