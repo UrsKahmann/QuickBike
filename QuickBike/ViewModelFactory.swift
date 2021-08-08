@@ -19,7 +19,7 @@ struct ViewModelFactory {
 	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
 	private let stopLocationTrackingUseCase: StopLocationTrackingUseCase
 	private let getLocationDataUseCase: GetLocationUseCase
-	private let checkForHaltUseCase: CheckForHaltUseCase
+	private let checkForHaltUseCase: GetMotionStateUseCase
 
 	// ViewModels
 	let dataCollectionViewModel: DataCollectionViewModel
@@ -31,7 +31,7 @@ struct ViewModelFactory {
 		self.startLocationTrackingUseCase = StartLocationTrackingUseCase(locationRepository: self.locationRepository)
 		self.stopLocationTrackingUseCase = StopLocationTrackingUseCase(locationRepository: self.locationRepository)
 		self.getLocationDataUseCase = GetLocationUseCase(locationRepository: self.locationRepository)
-		self.checkForHaltUseCase = CheckForHaltUseCase(locationRepository: self.locationRepository)
+		self.checkForHaltUseCase = GetMotionStateUseCase(locationRepository: self.locationRepository)
 
 		self.dataCollectionViewModel = DataCollectionViewModel(
 			startUseCase: self.startLocationTrackingUseCase,

@@ -15,11 +15,14 @@ class DataCollectionViewModel: ObservableObject {
 	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
 	private let stopLocationTrackingUseCase: StopLocationTrackingUseCase
 	private let getLocationDataUseCase: GetLocationUseCase
-	private let checkForHaltUseCase: CheckForHaltUseCase
+	private let getMotionStateUseCase: GetMotionStateUseCase
 
 	@Published var currentLocation: Coordinate?
 	@Published var region: MKCoordinateRegion = MKCoordinateRegion()
+	@Published var motionState: MotionState = .unknown
 	@Published var didStop: Bool = false
+
+	var motionDetectionSensitivity: Double = MotionDetector.Constants.standingThreshold
 
 	private var cancellable = Set<AnyCancellable>()
 
@@ -27,22 +30,28 @@ class DataCollectionViewModel: ObservableObject {
 		startUseCase: StartLocationTrackingUseCase,
 		stopUseCase: StopLocationTrackingUseCase,
 		getUseCase: GetLocationUseCase,
-		haltUseCase: CheckForHaltUseCase) {
+		haltUseCase: GetMotionStateUseCase) {
 
 			self.startLocationTrackingUseCase = startUseCase
 			self.stopLocationTrackingUseCase = stopUseCase
 			self.getLocationDataUseCase = getUseCase
-			self.checkForHaltUseCase = haltUseCase
+			self.getMotionStateUseCase = haltUseCase
 
 			self.creatBindings()
 	}
 
 	private func creatBindings() {
 
-		self.checkForHaltUseCase
-			.$didHalt
-			.sink { (didHalt: Bool) in
-				self.didStop = didHalt
+		self.getMotionStateUseCase
+			.$motionState
+			.sink { (motionState: MotionState) in
+				self.motionState = motionState
+				print("Motion State changed to: \(self.motionState)")
+				if self.motionState == .standing {
+					self.didStop = true
+				} else {
+					self.didStop = false
+				}
 			}
 			.store(in: &cancellable)
 		self.getLocationDataUseCase
@@ -80,5 +89,9 @@ class DataCollectionViewModel: ObservableObject {
 
 	func stopLocationTracking() {
 		self.stopLocationTrackingUseCase.stop()
+	}
+
+	func sensitivityChanged() {
+		self.getMotionStateUseCase.updateSensitivity(to: self.motionDetectionSensitivity)
 	}
 }

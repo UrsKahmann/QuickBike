@@ -9,5 +9,6 @@ import Foundation
 
 struct TrafficLightRecording {
 	let coordinates: Coordinate
-	let timestamp: Date
+	let timestampStop: Date
+	let timestampStart: Date
 }

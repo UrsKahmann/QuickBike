@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StopLocationTrackingUseCase {
+struct StopLocationTrackingUseCase {
 
 	private let locationRepository: LocationRepository
 

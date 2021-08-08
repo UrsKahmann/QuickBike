@@ -9,14 +9,16 @@ import Foundation
 
 struct MotionDetector {
 
-	private enum Constants {
+	enum Constants {
 		static let standingThreshold = 0.000001
+		static let minSensitivity = 0.00000001
+		static let maxSensitivity = 0.00001
 	}
 
 	private var accumulatedDistance = 0.0
 	private var lastCoordinate: Coordinate?
 
-	mutating func checkIfStanding(with coordinate: Coordinate) -> Bool {
+	mutating func checkIfStanding(with coordinate: Coordinate, threshold: Double = Constants.standingThreshold) -> Bool {
 		guard let lastCoordinate = self.lastCoordinate else {
 			self.lastCoordinate = coordinate
 			return false
@@ -27,7 +29,7 @@ struct MotionDetector {
 
 		print("Accumulated distance: \(self.accumulatedDistance)")
 
-		if self.accumulatedDistance < Constants.standingThreshold {
+		if self.accumulatedDistance < threshold {
 			return true
 		}
 
