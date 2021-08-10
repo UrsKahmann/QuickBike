@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import CoreData
 
 typealias Coordinate = CLLocationCoordinate2D
 
@@ -50,5 +51,20 @@ extension Coordinate {
 		)
 
 		return distance
+	}
+
+	func toCoreDataEntity(in context: NSManagedObjectContext) -> CDCoordinate {
+		let entity = CDCoordinate(context: context)
+		entity.latitude = self.latitude
+		entity.longitude = self.longitude
+
+		return entity
+	}
+
+	static func fromCoreData(_ entity: CDCoordinate) -> Coordinate {
+		return Coordinate(
+			latitude: entity.latitude,
+			longitude: entity.longitude
+		)
 	}
 }

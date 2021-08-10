@@ -16,6 +16,7 @@ class DataCollectionViewModel: ObservableObject {
 	private let stopLocationTrackingUseCase: StopLocationTrackingUseCase
 	private let getLocationDataUseCase: GetLocationUseCase
 	private let getMotionStateUseCase: GetMotionStateUseCase
+	private let saveRecordingUseCase: SaveRecordingUseCase
 
 	@Published var currentLocation: Coordinate?
 	@Published var region: MKCoordinateRegion = MKCoordinateRegion()
@@ -30,12 +31,14 @@ class DataCollectionViewModel: ObservableObject {
 		startUseCase: StartLocationTrackingUseCase,
 		stopUseCase: StopLocationTrackingUseCase,
 		getUseCase: GetLocationUseCase,
-		haltUseCase: GetMotionStateUseCase) {
+		haltUseCase: GetMotionStateUseCase,
+		saveRecordingUseCase: SaveRecordingUseCase) {
 
 			self.startLocationTrackingUseCase = startUseCase
 			self.stopLocationTrackingUseCase = stopUseCase
 			self.getLocationDataUseCase = getUseCase
 			self.getMotionStateUseCase = haltUseCase
+			self.saveRecordingUseCase = saveRecordingUseCase
 
 			self.creatBindings()
 	}
@@ -93,5 +96,23 @@ class DataCollectionViewModel: ObservableObject {
 
 	func sensitivityChanged() {
 		self.getMotionStateUseCase.updateSensitivity(to: self.motionDetectionSensitivity)
+	}
+
+	func save(recording: Recording?) -> Error? {
+		// Mock a recording
+		let mockTrafficLight = TrafficLightRecording(
+			version: 1,
+			coordinate: Coordinate(),
+			startTimeStamp: Date(timeIntervalSince1970: 134),
+			stopTimeStamp: Date(timeIntervalSince1970: 13423)
+		)
+
+		let mockRecording = Recording(
+			date: Date(),
+			data: [mockTrafficLight]
+		)
+
+		print("Saving")
+		return self.saveRecordingUseCase.add(recording: mockRecording)
 	}
 }

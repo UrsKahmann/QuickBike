@@ -13,3 +13,4 @@
 
 // RECORDING HISTORY VIEW
 "RecordingHistory.List.Title" = "Recording History";
+"RecordingHistory.List.Empty" = "No recordings found!";

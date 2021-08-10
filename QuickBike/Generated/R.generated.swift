@@ -127,8 +127,12 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
     struct localizable {
+      /// en translation: No recordings found!
+      ///
+      /// Locales: en
+      static let recordingHistoryListEmpty = Rswift.StringResource(key: "RecordingHistory.List.Empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Recording History
       ///
       /// Locales: en
@@ -145,6 +149,21 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en
       static let startInfoBoxHeader = Rswift.StringResource(key: "Start.InfoBox.Header", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+
+      /// en translation: No recordings found!
+      ///
+      /// Locales: en
+      static func recordingHistoryListEmpty(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("RecordingHistory.List.Empty", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "RecordingHistory.List.Empty"
+        }
+
+        return NSLocalizedString("RecordingHistory.List.Empty", bundle: bundle, comment: "")
+      }
 
       /// en translation: Recording History
       ///

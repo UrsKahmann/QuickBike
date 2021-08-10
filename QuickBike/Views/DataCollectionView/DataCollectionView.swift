@@ -98,6 +98,7 @@ struct DataCollectionView: View {
 				Spacer()
 				Button(action: {
 					self.viewModel.stopLocationTracking()
+					_ = self.viewModel.save(recording: nil)
 					self.presentationMode.wrappedValue.dismiss()
 				}) {
 					Text("Finish data collection")

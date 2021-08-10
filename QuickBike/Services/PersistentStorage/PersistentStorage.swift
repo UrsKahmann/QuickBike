@@ -14,8 +14,6 @@ class PersistentStorage {
 		static let persistanceContainerName = "QuickBike"
 	}
 
-	static let shared = PersistentStorage()
-
 	private lazy var persistentContainer: NSPersistentContainer = {
 		NSPersistentContainer(name: PersistentStorage.Constants.persistanceContainerName)
 	}()

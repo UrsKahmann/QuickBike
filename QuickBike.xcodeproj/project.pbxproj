@@ -14,8 +14,11 @@
 		2E6FE88B26C2E4140097C170 /* QuickBike.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE88926C2E4130097C170 /* QuickBike.xcdatamodeld */; };
 		2E6FE89026C2EA3C0097C170 /* RecordingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE88F26C2EA3C0097C170 /* RecordingHistoryView.swift */; };
 		2E6FE89426C2EA770097C170 /* RecordingHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89326C2EA770097C170 /* RecordingHistoryViewModel.swift */; };
-		2E6FE89626C2EE250097C170 /* SaveTrafficLightRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89526C2EE250097C170 /* SaveTrafficLightRecording.swift */; };
-		2E6FE89826C2EE3B0097C170 /* GetTrafficLightRecordings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89726C2EE3B0097C170 /* GetTrafficLightRecordings.swift */; };
+		2E6FE89626C2EE250097C170 /* SaveRecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89526C2EE250097C170 /* SaveRecordingUseCase.swift */; };
+		2E6FE89826C2EE3B0097C170 /* GetRecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89726C2EE3B0097C170 /* GetRecordingUseCase.swift */; };
+		2E6FE89A26C2F1EC0097C170 /* RecordingRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89926C2F1EC0097C170 /* RecordingRespository.swift */; };
+		2E6FE89D26C2F2600097C170 /* TrafficLightRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89C26C2F2600097C170 /* TrafficLightRecording.swift */; };
+		2E6FE89F26C2F2980097C170 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89E26C2F2980097C170 /* Recording.swift */; };
 		2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */; };
 		2ED2E0AA26AEB888008D719B /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0A926AEB888008D719B /* LocationRepository.swift */; };
 		2ED2E0AD26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0AC26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift */; };
@@ -47,8 +50,11 @@
 		2E6FE88A26C2E4140097C170 /* QuickBike.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuickBike.xcdatamodel; sourceTree = "<group>"; };
 		2E6FE88F26C2EA3C0097C170 /* RecordingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryView.swift; sourceTree = "<group>"; };
 		2E6FE89326C2EA770097C170 /* RecordingHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryViewModel.swift; sourceTree = "<group>"; };
-		2E6FE89526C2EE250097C170 /* SaveTrafficLightRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTrafficLightRecording.swift; sourceTree = "<group>"; };
-		2E6FE89726C2EE3B0097C170 /* GetTrafficLightRecordings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTrafficLightRecordings.swift; sourceTree = "<group>"; };
+		2E6FE89526C2EE250097C170 /* SaveRecordingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRecordingUseCase.swift; sourceTree = "<group>"; };
+		2E6FE89726C2EE3B0097C170 /* GetRecordingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordingUseCase.swift; sourceTree = "<group>"; };
+		2E6FE89926C2F1EC0097C170 /* RecordingRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRespository.swift; sourceTree = "<group>"; };
+		2E6FE89C26C2F2600097C170 /* TrafficLightRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightRecording.swift; sourceTree = "<group>"; };
+		2E6FE89E26C2F2980097C170 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartLocationTrackingUseCase.swift; sourceTree = "<group>"; };
 		2ED2E0A926AEB888008D719B /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
 		2ED2E0AC26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extension.swift"; sourceTree = "<group>"; };
@@ -149,6 +155,15 @@
 			path = RecordingHistoryView;
 			sourceTree = "<group>";
 		};
+		2E6FE89B26C2F2500097C170 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E6FE89C26C2F2600097C170 /* TrafficLightRecording.swift */,
+				2E6FE89E26C2F2980097C170 /* Recording.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2ED2E0A526AEB829008D719B /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +172,8 @@
 				2ED2E0AE26B01612008D719B /* GetLocationUseCase.swift */,
 				2ED2E0C126B461F0008D719B /* GetMotionStateUseCase.swift */,
 				2E6FE88226BFE6120097C170 /* StartRecordingUseCase.swift */,
-				2E6FE89526C2EE250097C170 /* SaveTrafficLightRecording.swift */,
-				2E6FE89726C2EE3B0097C170 /* GetTrafficLightRecordings.swift */,
+				2E6FE89526C2EE250097C170 /* SaveRecordingUseCase.swift */,
+				2E6FE89726C2EE3B0097C170 /* GetRecordingUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -166,22 +181,16 @@
 		2ED2E0A826AEB872008D719B /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				2ED2E0B226B049F8008D719B /* Location */,
+				2ED2E0A926AEB888008D719B /* LocationRepository.swift */,
+				2E6FE89926C2F1EC0097C170 /* RecordingRespository.swift */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		2ED2E0B226B049F8008D719B /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				2ED2E0A926AEB888008D719B /* LocationRepository.swift */,
-			);
-			path = Location;
 			sourceTree = "<group>";
 		};
 		2ED2E0B826B1AAE2008D719B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2E6FE89B26C2F2500097C170 /* Models */,
 				2ED2E0B926B1AAFC008D719B /* MotionDetector.swift */,
 			);
 			path = Entities;
@@ -436,8 +445,10 @@
 				2E6FE88526C2E09B0097C170 /* PersistentStorage.swift in Sources */,
 				2E6FE89026C2EA3C0097C170 /* RecordingHistoryView.swift in Sources */,
 				2ED2E0BA26B1AAFC008D719B /* MotionDetector.swift in Sources */,
+				2E6FE89F26C2F2980097C170 /* Recording.swift in Sources */,
 				2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */,
 				2ED2E0C226B461F0008D719B /* GetMotionStateUseCase.swift in Sources */,
+				2E6FE89D26C2F2600097C170 /* TrafficLightRecording.swift in Sources */,
 				2EE93B4F26AD87C3005AA5C2 /* DataCollectionView.swift in Sources */,
 				2ED2E0C026B32E77008D719B /* CLLocation+Extension.swift in Sources */,
 				2ED2E0AF26B01612008D719B /* GetLocationUseCase.swift in Sources */,
@@ -445,11 +456,12 @@
 				2ED2E0AA26AEB888008D719B /* LocationRepository.swift in Sources */,
 				2E43B6AC26ADE22A0046DFB7 /* LocationService.swift in Sources */,
 				2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */,
-				2E6FE89626C2EE250097C170 /* SaveTrafficLightRecording.swift in Sources */,
+				2E6FE89626C2EE250097C170 /* SaveRecordingUseCase.swift in Sources */,
 				2EE93B5226AD926E005AA5C2 /* TitleLabel.swift in Sources */,
 				2E6FE88B26C2E4140097C170 /* QuickBike.xcdatamodeld in Sources */,
 				2E6FE89426C2EA770097C170 /* RecordingHistoryViewModel.swift in Sources */,
-				2E6FE89826C2EE3B0097C170 /* GetTrafficLightRecordings.swift in Sources */,
+				2E6FE89A26C2F1EC0097C170 /* RecordingRespository.swift in Sources */,
+				2E6FE89826C2EE3B0097C170 /* GetRecordingUseCase.swift in Sources */,
 				2ED2E0B126B01926008D719B /* StopLocationTrackingUseCase.swift in Sources */,
 				2E6FE88326BFE6120097C170 /* StartRecordingUseCase.swift in Sources */,
 				2E43B6AF26ADEDBB0046DFB7 /* DataCollectionViewModel.swift in Sources */,

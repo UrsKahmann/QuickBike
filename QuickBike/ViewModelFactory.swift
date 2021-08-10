@@ -14,15 +14,19 @@ struct ViewModelFactory {
 
 	// Init repostiories
 	private let locationRepository: LocationRepository
+	private let recordingRepository = RealRecordingRepository()
 
 	// Use Cases
 	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
 	private let stopLocationTrackingUseCase: StopLocationTrackingUseCase
 	private let getLocationDataUseCase: GetLocationUseCase
 	private let checkForHaltUseCase: GetMotionStateUseCase
+	private let saveRecordingUseCase: SaveRecordingUseCase
+	private let getRecordingUseCase: GetRecordingUseCase
 
 	// ViewModels
 	let dataCollectionViewModel: DataCollectionViewModel
+	let recordingHistoryViewModel: RecordingHistoryViewModel
 
 	init() {
 		// Init repostiories
@@ -32,11 +36,19 @@ struct ViewModelFactory {
 		self.stopLocationTrackingUseCase = StopLocationTrackingUseCase(locationRepository: self.locationRepository)
 		self.getLocationDataUseCase = GetLocationUseCase(locationRepository: self.locationRepository)
 		self.checkForHaltUseCase = GetMotionStateUseCase(locationRepository: self.locationRepository)
+		self.saveRecordingUseCase = SaveRecordingUseCase(recordingRepository: self.recordingRepository)
+		self.getRecordingUseCase = GetRecordingUseCase(recordingRepository: self.recordingRepository)
 
 		self.dataCollectionViewModel = DataCollectionViewModel(
 			startUseCase: self.startLocationTrackingUseCase,
 			stopUseCase: self.stopLocationTrackingUseCase,
 			getUseCase: self.getLocationDataUseCase,
-			haltUseCase: self.checkForHaltUseCase)
+			haltUseCase: self.checkForHaltUseCase,
+			saveRecordingUseCase: self.saveRecordingUseCase
+		)
+
+		self.recordingHistoryViewModel = RecordingHistoryViewModel(
+			getRecordingUseCase: self.getRecordingUseCase
+		)
 	}
 }

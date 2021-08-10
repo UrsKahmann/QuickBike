@@ -3,14 +3,22 @@
     <entity name="CDCoordinate" representedClassName="CDCoordinate" syncable="YES" codeGenerationType="class">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="trafficLightRecording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTrafficLightRecording" inverseName="coordinate" inverseEntity="CDTrafficLightRecording"/>
+    </entity>
+    <entity name="CDRecording" representedClassName="CDRecording" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="data" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDTrafficLightRecording" inverseName="recording" inverseEntity="CDTrafficLightRecording"/>
     </entity>
     <entity name="CDTrafficLightRecording" representedClassName="CDTrafficLightRecording" syncable="YES" codeGenerationType="class">
         <attribute name="startTimeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="stopTimeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="coordinate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDCoordinate"/>
+        <attribute name="version" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <relationship name="coordinate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDCoordinate" inverseName="trafficLightRecording" inverseEntity="CDCoordinate"/>
+        <relationship name="recording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDRecording" inverseName="data" inverseEntity="CDRecording"/>
     </entity>
     <elements>
-        <element name="CDTrafficLightRecording" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="CDCoordinate" positionX="-54" positionY="0" width="128" height="59"/>
+        <element name="CDCoordinate" positionX="-54" positionY="0" width="128" height="74"/>
+        <element name="CDRecording" positionX="-36" positionY="27" width="128" height="59"/>
+        <element name="CDTrafficLightRecording" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>
