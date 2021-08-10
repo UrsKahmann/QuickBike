@@ -8,25 +8,6 @@
 import Foundation
 import CoreLocation
 
-/*struct Coordinate: Identifiable {
-	let id = UUID()
-	let latitude: Double
-	let longitude: Double
-
-	var debugDescription: String {
-		return "ID: \(self.id) | lat: \(self.latitude) | long: \(self.longitude)"
-	}
-
-	func distance(to otherCoordinate: Coordinate) -> Double {
-		let distance = sqrt(
-			pow(self.latitude - otherCoordinate.latitude, 2) +
-			pow(self.longitude - otherCoordinate.longitude, 2)
-		)
-
-		return distance
-	}
-}*/
-
 typealias Coordinate = CLLocationCoordinate2D
 
 extension Coordinate: Identifiable {
@@ -36,6 +17,10 @@ extension Coordinate: Identifiable {
 }
 
 extension Coordinate {
+
+	var debugDescription: String {
+		return "ID: \(self.id) | lat: \(self.latitude) | long: \(self.longitude)"
+	}
 
 	static func + (lhs: Coordinate, rhs: Coordinate) -> Coordinate {
 		return Coordinate(
