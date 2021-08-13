@@ -10,6 +10,11 @@ import Combine
 import CoreLocation
 import MapKit
 
+enum AlertType {
+	case stop
+	case recordingSavingError
+}
+
 class DataCollectionViewModel: ObservableObject {
 
 	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
@@ -17,11 +22,18 @@ class DataCollectionViewModel: ObservableObject {
 	private let getLocationDataUseCase: GetLocationUseCase
 	private let getMotionStateUseCase: GetMotionStateUseCase
 	private let saveRecordingUseCase: SaveRecordingUseCase
+	private let startRecordingUseCase: StartRecordingUseCase
+	private let startTrafficLightRecoringUseCase: StartTrafficLightRecordingUseCase
+	private let stopTrafficLightRecordingUseCase: StopTrafficLightRecordingUseCase
 
 	@Published var currentLocation: Coordinate?
 	@Published var region: MKCoordinateRegion = MKCoordinateRegion()
 	@Published var motionState: MotionState = .unknown
-	@Published var didStop: Bool = false
+	@Published var showAlert: Bool = false
+	@Published var recordingSavingError: Error?
+
+	var currentAlert: AlertType = .stop
+	var userConfirmedTrafficLight = false
 
 	var motionDetectionSensitivity: Double = MotionDetector.Constants.standingThreshold
 
@@ -32,13 +44,19 @@ class DataCollectionViewModel: ObservableObject {
 		stopUseCase: StopLocationTrackingUseCase,
 		getUseCase: GetLocationUseCase,
 		haltUseCase: GetMotionStateUseCase,
-		saveRecordingUseCase: SaveRecordingUseCase) {
+		saveRecordingUseCase: SaveRecordingUseCase,
+		startRecordingUseCase: StartRecordingUseCase,
+		startTrafficUseCase: StartTrafficLightRecordingUseCase,
+		stopTrafficUseCase: StopTrafficLightRecordingUseCase) {
 
 			self.startLocationTrackingUseCase = startUseCase
 			self.stopLocationTrackingUseCase = stopUseCase
 			self.getLocationDataUseCase = getUseCase
 			self.getMotionStateUseCase = haltUseCase
 			self.saveRecordingUseCase = saveRecordingUseCase
+			self.startRecordingUseCase = startRecordingUseCase
+			self.startTrafficLightRecoringUseCase = startTrafficUseCase
+			self.stopTrafficLightRecordingUseCase = stopTrafficUseCase
 
 			self.creatBindings()
 	}
@@ -49,14 +67,29 @@ class DataCollectionViewModel: ObservableObject {
 			.$motionState
 			.sink { (motionState: MotionState) in
 				self.motionState = motionState
-				print("Motion State changed to: \(self.motionState)")
+
 				if self.motionState == .standing {
-					self.didStop = true
+					self.currentAlert = .stop
+					self.showAlert = true
+					print("Did Stop = true")
+					if let currentLocation = self.currentLocation {
+						self.startTrafficLightRecoringUseCase
+							.start(coordinate: currentLocation)
+					}
+
 				} else {
-					self.didStop = false
+					self.showAlert = false
+					print("Did Stop = false")
+					if self.userConfirmedTrafficLight == true {
+						self.userConfirmedTrafficLight = false
+						self.stopTrafficLightRecordingUseCase.stop()
+					} else {
+						// TODO: cancel traffic light recordin
+					}
 				}
 			}
 			.store(in: &cancellable)
+
 		self.getLocationDataUseCase
 			.$currentLocation
 			.sink { (current: Coordinate) in
@@ -74,6 +107,15 @@ class DataCollectionViewModel: ObservableObject {
 				)
 
 				self.region = MKCoordinateRegion(center: center, span: span)
+			}
+			.store(in: &cancellable)
+
+		self.$recordingSavingError
+			.sink { error in
+				if error != nil {
+					self.currentAlert = .recordingSavingError
+					self.showAlert = true
+				}
 			}
 			.store(in: &cancellable)
 	}
@@ -98,21 +140,15 @@ class DataCollectionViewModel: ObservableObject {
 		self.getMotionStateUseCase.updateSensitivity(to: self.motionDetectionSensitivity)
 	}
 
-	func save(recording: Recording?) -> Error? {
-		// Mock a recording
-		let mockTrafficLight = TrafficLightRecording(
-			version: 1,
-			coordinate: Coordinate(),
-			startTimeStamp: Date(timeIntervalSince1970: 134),
-			stopTimeStamp: Date(timeIntervalSince1970: 13423)
-		)
+	func startRecording() {
+		self.startRecordingUseCase.start()
+	}
 
-		let mockRecording = Recording(
-			date: Date(),
-			data: [mockTrafficLight]
-		)
+	func stopRecording() {
+		self.recordingSavingError = self.saveRecordingUseCase.saveCurrentRecording()
+	}
 
-		print("Saving")
-		return self.saveRecordingUseCase.add(recording: mockRecording)
+	func confirmTrafficLight() {
+		self.userConfirmedTrafficLight = true
 	}
 }

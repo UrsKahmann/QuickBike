@@ -27,8 +27,6 @@ struct MotionDetector {
 		self.accumulatedDistance = lastCoordinate.distance(to: coordinate)
 		self.lastCoordinate = coordinate
 
-		print("Accumulated distance: \(self.accumulatedDistance)")
-
 		if self.accumulatedDistance < threshold {
 			return true
 		}

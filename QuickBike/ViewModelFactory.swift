@@ -10,7 +10,7 @@ import Foundation
 struct ViewModelFactory {
 	static let shared = ViewModelFactory()
 
-	private let locationProvider = MockLocationService()
+	private let locationProvider = LocationService()//MockLocationService()
 
 	// Init repostiories
 	private let locationRepository: LocationRepository
@@ -23,6 +23,9 @@ struct ViewModelFactory {
 	private let checkForHaltUseCase: GetMotionStateUseCase
 	private let saveRecordingUseCase: SaveRecordingUseCase
 	private let getRecordingUseCase: GetRecordingUseCase
+	private let startRecordingUseCase = StartRecordingUseCase()
+	private let startTrafficLightRecordingUseCase = StartTrafficLightRecordingUseCase()
+	private let stopTrafficLightRecordingUseCase = StopTrafficLightRecordingUseCase()
 
 	// ViewModels
 	let dataCollectionViewModel: DataCollectionViewModel
@@ -44,7 +47,10 @@ struct ViewModelFactory {
 			stopUseCase: self.stopLocationTrackingUseCase,
 			getUseCase: self.getLocationDataUseCase,
 			haltUseCase: self.checkForHaltUseCase,
-			saveRecordingUseCase: self.saveRecordingUseCase
+			saveRecordingUseCase: self.saveRecordingUseCase,
+			startRecordingUseCase: self.startRecordingUseCase,
+			startTrafficUseCase: self.startTrafficLightRecordingUseCase,
+			stopTrafficUseCase: self.stopTrafficLightRecordingUseCase
 		)
 
 		self.recordingHistoryViewModel = RecordingHistoryViewModel(

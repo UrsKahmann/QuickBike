@@ -9,4 +9,8 @@ import Foundation
 
 struct StartRecordingUseCase {
 
+	func start() {
+		print("Starting recording")
+		TrafficLightRecorder.shared.startRecording()
+	}
 }

@@ -16,6 +16,15 @@ struct SaveRecordingUseCase {
 		self.recordingRepository = recordingRepository
 	}
 
+	func saveCurrentRecording() -> Error? {
+		print("Stopping and saving recording")
+		if let currentRecording = TrafficLightRecorder.shared.finishRecording() {
+			return self.recordingRepository.add(recording: currentRecording)
+		}
+
+		return nil
+	}
+
 	func add(recording: Recording) -> Error? {
 		return self.recordingRepository.add(recording: recording)
 	}

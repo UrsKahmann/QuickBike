@@ -8,7 +8,8 @@
 import Foundation
 import CoreData
 
-struct TrafficLightRecording {
+struct TrafficLightRecording: Identifiable {
+	let id = UUID()
 	let version: Int
 	let coordinate: Coordinate
 	let startTimeStamp: Date

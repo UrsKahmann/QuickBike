@@ -98,7 +98,7 @@ struct DataCollectionView: View {
 				Spacer()
 				Button(action: {
 					self.viewModel.stopLocationTracking()
-					_ = self.viewModel.save(recording: nil)
+					self.viewModel.stopRecording()
 					self.presentationMode.wrappedValue.dismiss()
 				}) {
 					Text("Finish data collection")
@@ -116,13 +116,31 @@ struct DataCollectionView: View {
 		}.navigationBarHidden(true)
 		.onAppear {
 			self.viewModel.startLocationTracking()
+			self.viewModel.startRecording()
 		}
-		.alert(isPresented: self.$viewModel.didStop) {
-			Alert(
-				title: Text("You stopped!"),
-				message: Text("Did you stop at a red light?"),
-				dismissButton: .default(Text("YES!"))
-			)
+		.alert(isPresented: self.$viewModel.showAlert) {
+			switch self.viewModel.currentAlert {
+			case .stop:
+				return Alert(
+					title: Text("You stopped!"),
+					message: Text("Did you stop at a red light?"),
+					primaryButton: .default(
+						Text("Yes"),
+						action: {
+							self.viewModel.confirmTrafficLight()
+						}),
+					secondaryButton: .default(
+						Text("No")
+					)
+				)
+			case .recordingSavingError:
+				return Alert(
+					title: Text("Error while saving this recording!"),
+					message: Text(self.viewModel.recordingSavingError?.localizedDescription ?? ""),
+					dismissButton: .default(Text("OK"))
+				)
+			}
+
 		}
 	}
 }
