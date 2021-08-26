@@ -10,7 +10,7 @@ import Foundation
 struct ViewModelFactory {
 	static let shared = ViewModelFactory()
 
-	private let locationProvider = LocationService()//MockLocationService()
+	private let locationProvider = MockLocationService()
 
 	// Init repostiories
 	private let locationRepository: LocationRepository
@@ -23,13 +23,15 @@ struct ViewModelFactory {
 	private let checkForHaltUseCase: GetMotionStateUseCase
 	private let saveRecordingUseCase: SaveRecordingUseCase
 	private let getRecordingUseCase: GetRecordingUseCase
-	private let startRecordingUseCase = StartRecordingUseCase()
+	private let startRecordingUseCase: StartRecordingUseCase
 	private let startTrafficLightRecordingUseCase = StartTrafficLightRecordingUseCase()
 	private let stopTrafficLightRecordingUseCase = StopTrafficLightRecordingUseCase()
+	private let deleteRecordingUseCase: DeleteRecordingUseCase
 
 	// ViewModels
 	let dataCollectionViewModel: DataCollectionViewModel
 	let recordingHistoryViewModel: RecordingHistoryViewModel
+	let recordingHistoryDetailViewModel: RecordingHistoryDetailViewModel
 
 	init() {
 		// Init repostiories
@@ -41,6 +43,8 @@ struct ViewModelFactory {
 		self.checkForHaltUseCase = GetMotionStateUseCase(locationRepository: self.locationRepository)
 		self.saveRecordingUseCase = SaveRecordingUseCase(recordingRepository: self.recordingRepository)
 		self.getRecordingUseCase = GetRecordingUseCase(recordingRepository: self.recordingRepository)
+		self.startRecordingUseCase = StartRecordingUseCase(recordingRepository: self.recordingRepository)
+		self.deleteRecordingUseCase = DeleteRecordingUseCase(recordingRepository: self.recordingRepository)
 
 		self.dataCollectionViewModel = DataCollectionViewModel(
 			startUseCase: self.startLocationTrackingUseCase,
@@ -54,6 +58,11 @@ struct ViewModelFactory {
 		)
 
 		self.recordingHistoryViewModel = RecordingHistoryViewModel(
+			getRecordingUseCase: self.getRecordingUseCase,
+			deleteRecordingUseCase: self.deleteRecordingUseCase
+		)
+
+		self.recordingHistoryDetailViewModel = RecordingHistoryDetailViewModel(
 			getRecordingUseCase: self.getRecordingUseCase
 		)
 	}

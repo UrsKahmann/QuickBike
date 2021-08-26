@@ -11,17 +11,21 @@
 		2E43B6AF26ADEDBB0046DFB7 /* DataCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */; };
 		2E6FE88326BFE6120097C170 /* StartRecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE88226BFE6120097C170 /* StartRecordingUseCase.swift */; };
 		2E6FE88526C2E09B0097C170 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE88426C2E09B0097C170 /* PersistentStorage.swift */; };
-		2E6FE88B26C2E4140097C170 /* QuickBike.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE88926C2E4130097C170 /* QuickBike.xcdatamodeld */; };
 		2E6FE89026C2EA3C0097C170 /* RecordingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE88F26C2EA3C0097C170 /* RecordingHistoryView.swift */; };
 		2E6FE89426C2EA770097C170 /* RecordingHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89326C2EA770097C170 /* RecordingHistoryViewModel.swift */; };
 		2E6FE89626C2EE250097C170 /* SaveRecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89526C2EE250097C170 /* SaveRecordingUseCase.swift */; };
 		2E6FE89826C2EE3B0097C170 /* GetRecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89726C2EE3B0097C170 /* GetRecordingUseCase.swift */; };
 		2E6FE89A26C2F1EC0097C170 /* RecordingRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89926C2F1EC0097C170 /* RecordingRespository.swift */; };
-		2E6FE89D26C2F2600097C170 /* TrafficLightRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89C26C2F2600097C170 /* TrafficLightRecording.swift */; };
-		2E6FE89F26C2F2980097C170 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE89E26C2F2980097C170 /* Recording.swift */; };
 		2E6FE8A126C6B4BA0097C170 /* TrafficLightRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8A026C6B4BA0097C170 /* TrafficLightRecorder.swift */; };
 		2E6FE8A526C6BA480097C170 /* StartTrafficLightRecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8A426C6BA480097C170 /* StartTrafficLightRecordingUseCase.swift */; };
 		2E6FE8A726C6BA5B0097C170 /* StopTrafficLightRecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8A626C6BA5B0097C170 /* StopTrafficLightRecordingUseCase.swift */; };
+		2E6FE8AA26D6305F0097C170 /* DeleteRecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8A926D6305F0097C170 /* DeleteRecordingUseCase.swift */; };
+		2E6FE8AD26D7DBF00097C170 /* QuickBike.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8AB26D7DBF00097C170 /* QuickBike.xcdatamodeld */; };
+		2E6FE8BA26D7DCAC0097C170 /* Recording+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8B626D7DCAC0097C170 /* Recording+CoreDataClass.swift */; };
+		2E6FE8BC26D7DCAC0097C170 /* TrafficLightRecording+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8B826D7DCAC0097C170 /* TrafficLightRecording+CoreDataClass.swift */; };
+		2E6FE8BF26D7EA020097C170 /* RecordingHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8BE26D7EA020097C170 /* RecordingHistoryDetailView.swift */; };
+		2E6FE8C126D7EA8D0097C170 /* RecordingHistoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8C026D7EA8D0097C170 /* RecordingHistoryDetailViewModel.swift */; };
+		2E6FE8C426D7F2080097C170 /* CoordinateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6FE8C326D7F2080097C170 /* CoordinateUtils.swift */; };
 		2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */; };
 		2ED2E0AA26AEB888008D719B /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0A926AEB888008D719B /* LocationRepository.swift */; };
 		2ED2E0AD26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E0AC26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift */; };
@@ -50,17 +54,21 @@
 		2E43B6AE26ADEDBB0046DFB7 /* DataCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewModel.swift; sourceTree = "<group>"; };
 		2E6FE88226BFE6120097C170 /* StartRecordingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRecordingUseCase.swift; sourceTree = "<group>"; };
 		2E6FE88426C2E09B0097C170 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
-		2E6FE88A26C2E4140097C170 /* QuickBike.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuickBike.xcdatamodel; sourceTree = "<group>"; };
 		2E6FE88F26C2EA3C0097C170 /* RecordingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryView.swift; sourceTree = "<group>"; };
 		2E6FE89326C2EA770097C170 /* RecordingHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryViewModel.swift; sourceTree = "<group>"; };
 		2E6FE89526C2EE250097C170 /* SaveRecordingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRecordingUseCase.swift; sourceTree = "<group>"; };
 		2E6FE89726C2EE3B0097C170 /* GetRecordingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordingUseCase.swift; sourceTree = "<group>"; };
 		2E6FE89926C2F1EC0097C170 /* RecordingRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRespository.swift; sourceTree = "<group>"; };
-		2E6FE89C26C2F2600097C170 /* TrafficLightRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightRecording.swift; sourceTree = "<group>"; };
-		2E6FE89E26C2F2980097C170 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		2E6FE8A026C6B4BA0097C170 /* TrafficLightRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightRecorder.swift; sourceTree = "<group>"; };
 		2E6FE8A426C6BA480097C170 /* StartTrafficLightRecordingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTrafficLightRecordingUseCase.swift; sourceTree = "<group>"; };
 		2E6FE8A626C6BA5B0097C170 /* StopTrafficLightRecordingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTrafficLightRecordingUseCase.swift; sourceTree = "<group>"; };
+		2E6FE8A926D6305F0097C170 /* DeleteRecordingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecordingUseCase.swift; sourceTree = "<group>"; };
+		2E6FE8AC26D7DBF00097C170 /* QuickBike.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuickBike.xcdatamodel; sourceTree = "<group>"; };
+		2E6FE8B626D7DCAC0097C170 /* Recording+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recording+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E6FE8B826D7DCAC0097C170 /* TrafficLightRecording+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrafficLightRecording+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E6FE8BE26D7EA020097C170 /* RecordingHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryDetailView.swift; sourceTree = "<group>"; };
+		2E6FE8C026D7EA8D0097C170 /* RecordingHistoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingHistoryDetailViewModel.swift; sourceTree = "<group>"; };
+		2E6FE8C326D7F2080097C170 /* CoordinateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateUtils.swift; sourceTree = "<group>"; };
 		2ED2E0A626AEB84D008D719B /* StartLocationTrackingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartLocationTrackingUseCase.swift; sourceTree = "<group>"; };
 		2ED2E0A926AEB888008D719B /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
 		2ED2E0AC26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extension.swift"; sourceTree = "<group>"; };
@@ -137,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6FE88426C2E09B0097C170 /* PersistentStorage.swift */,
-				2E6FE88926C2E4130097C170 /* QuickBike.xcdatamodeld */,
+				2E6FE8AB26D7DBF00097C170 /* QuickBike.xcdatamodeld */,
 			);
 			path = PersistentStorage;
 			sourceTree = "<group>";
@@ -155,8 +163,10 @@
 		2E6FE89226C2EA5F0097C170 /* RecordingHistoryView */ = {
 			isa = PBXGroup;
 			children = (
+				2E6FE8BE26D7EA020097C170 /* RecordingHistoryDetailView.swift */,
 				2E6FE88F26C2EA3C0097C170 /* RecordingHistoryView.swift */,
 				2E6FE89326C2EA770097C170 /* RecordingHistoryViewModel.swift */,
+				2E6FE8C026D7EA8D0097C170 /* RecordingHistoryDetailViewModel.swift */,
 			);
 			path = RecordingHistoryView;
 			sourceTree = "<group>";
@@ -164,8 +174,8 @@
 		2E6FE89B26C2F2500097C170 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2E6FE89C26C2F2600097C170 /* TrafficLightRecording.swift */,
-				2E6FE89E26C2F2980097C170 /* Recording.swift */,
+				2E6FE8B626D7DCAC0097C170 /* Recording+CoreDataClass.swift */,
+				2E6FE8B826D7DCAC0097C170 /* TrafficLightRecording+CoreDataClass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,14 +190,31 @@
 			path = LocationTrackingUseCases;
 			sourceTree = "<group>";
 		};
+		2E6FE8A826D630380097C170 /* StorageUseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2E6FE89526C2EE250097C170 /* SaveRecordingUseCase.swift */,
+				2E6FE89726C2EE3B0097C170 /* GetRecordingUseCase.swift */,
+				2E6FE8A926D6305F0097C170 /* DeleteRecordingUseCase.swift */,
+			);
+			path = StorageUseCases;
+			sourceTree = "<group>";
+		};
+		2E6FE8C226D7F1F30097C170 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				2E6FE8C326D7F2080097C170 /* CoordinateUtils.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		2ED2E0A526AEB829008D719B /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				2E6FE8A826D630380097C170 /* StorageUseCases */,
 				2E6FE8A226C6B9CB0097C170 /* LocationTrackingUseCases */,
 				2ED2E0C126B461F0008D719B /* GetMotionStateUseCase.swift */,
 				2E6FE88226BFE6120097C170 /* StartRecordingUseCase.swift */,
-				2E6FE89526C2EE250097C170 /* SaveRecordingUseCase.swift */,
-				2E6FE89726C2EE3B0097C170 /* GetRecordingUseCase.swift */,
 				2E6FE8A426C6BA480097C170 /* StartTrafficLightRecordingUseCase.swift */,
 				2E6FE8A626C6BA5B0097C170 /* StopTrafficLightRecordingUseCase.swift */,
 			);
@@ -252,6 +279,7 @@
 		2EE93B1726AC7482005AA5C2 /* QuickBike */ = {
 			isa = PBXGroup;
 			children = (
+				2E6FE8C226D7F1F30097C170 /* Helper */,
 				2ED2E0BE26B32E62008D719B /* Extensions */,
 				2ED2E0BB26B32505008D719B /* Services */,
 				2ED2E0B826B1AAE2008D719B /* Entities */,
@@ -460,12 +488,11 @@
 			files = (
 				2ED2E0AD26AEE177008D719B /* CLLocationCoordinate2D+Extension.swift in Sources */,
 				2E6FE88526C2E09B0097C170 /* PersistentStorage.swift in Sources */,
+				2E6FE8AD26D7DBF00097C170 /* QuickBike.xcdatamodeld in Sources */,
 				2E6FE89026C2EA3C0097C170 /* RecordingHistoryView.swift in Sources */,
 				2ED2E0BA26B1AAFC008D719B /* MotionDetector.swift in Sources */,
-				2E6FE89F26C2F2980097C170 /* Recording.swift in Sources */,
 				2ED2E0A726AEB84D008D719B /* StartLocationTrackingUseCase.swift in Sources */,
 				2ED2E0C226B461F0008D719B /* GetMotionStateUseCase.swift in Sources */,
-				2E6FE89D26C2F2600097C170 /* TrafficLightRecording.swift in Sources */,
 				2EE93B4F26AD87C3005AA5C2 /* DataCollectionView.swift in Sources */,
 				2ED2E0C026B32E77008D719B /* CLLocation+Extension.swift in Sources */,
 				2ED2E0AF26B01612008D719B /* GetLocationUseCase.swift in Sources */,
@@ -473,11 +500,14 @@
 				2ED2E0AA26AEB888008D719B /* LocationRepository.swift in Sources */,
 				2E43B6AC26ADE22A0046DFB7 /* LocationService.swift in Sources */,
 				2E6FE8A126C6B4BA0097C170 /* TrafficLightRecorder.swift in Sources */,
+				2E6FE8C126D7EA8D0097C170 /* RecordingHistoryDetailViewModel.swift in Sources */,
 				2EE93B1926AC7482005AA5C2 /* QuickBikeApp.swift in Sources */,
 				2E6FE89626C2EE250097C170 /* SaveRecordingUseCase.swift in Sources */,
+				2E6FE8BF26D7EA020097C170 /* RecordingHistoryDetailView.swift in Sources */,
 				2EE93B5226AD926E005AA5C2 /* TitleLabel.swift in Sources */,
-				2E6FE88B26C2E4140097C170 /* QuickBike.xcdatamodeld in Sources */,
+				2E6FE8AA26D6305F0097C170 /* DeleteRecordingUseCase.swift in Sources */,
 				2E6FE89426C2EA770097C170 /* RecordingHistoryViewModel.swift in Sources */,
+				2E6FE8C426D7F2080097C170 /* CoordinateUtils.swift in Sources */,
 				2E6FE8A726C6BA5B0097C170 /* StopTrafficLightRecordingUseCase.swift in Sources */,
 				2E6FE89A26C2F1EC0097C170 /* RecordingRespository.swift in Sources */,
 				2E6FE89826C2EE3B0097C170 /* GetRecordingUseCase.swift in Sources */,
@@ -486,8 +516,10 @@
 				2E43B6AF26ADEDBB0046DFB7 /* DataCollectionViewModel.swift in Sources */,
 				2ED2E0BD26B32554008D719B /* MockLocationService.swift in Sources */,
 				2EE93B4D26AD8254005AA5C2 /* R.generated.swift in Sources */,
+				2E6FE8BC26D7DCAC0097C170 /* TrafficLightRecording+CoreDataClass.swift in Sources */,
 				2ED2E0B726B1A590008D719B /* ViewModelFactory.swift in Sources */,
 				2E6FE8A526C6BA480097C170 /* StartTrafficLightRecordingUseCase.swift in Sources */,
+				2E6FE8BA26D7DCAC0097C170 /* Recording+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,12 +723,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2E6FE88926C2E4130097C170 /* QuickBike.xcdatamodeld */ = {
+		2E6FE8AB26D7DBF00097C170 /* QuickBike.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2E6FE88A26C2E4140097C170 /* QuickBike.xcdatamodel */,
+				2E6FE8AC26D7DBF00097C170 /* QuickBike.xcdatamodel */,
 			);
-			currentVersion = 2E6FE88A26C2E4140097C170 /* QuickBike.xcdatamodel */;
+			currentVersion = 2E6FE8AC26D7DBF00097C170 /* QuickBike.xcdatamodel */;
 			path = QuickBike.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

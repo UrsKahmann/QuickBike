@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct TrafficLightRecorder {
 
@@ -14,6 +15,8 @@ struct TrafficLightRecorder {
 	private enum Constants {
 		static let dataModelVersion = 1
 	}
+
+	private var managedObjectsContext: NSManagedObjectContext?
 
 	private var trafficLightRecordings = [TrafficLightRecording]()
 	private var date: Date?
@@ -40,13 +43,14 @@ struct TrafficLightRecorder {
 
 		if
 			let start = self.trafficLightStartTime,
-			let coordinate = self.trafficLightCoordinate {
-				let newTrafficLightRecording = TrafficLightRecording(
-					version: TrafficLightRecorder.Constants.dataModelVersion,
-					coordinate: coordinate,
-					startTimeStamp: start,
-					stopTimeStamp: Date()
-				)
+			let coordinate = self.trafficLightCoordinate,
+			let context = self.managedObjectsContext {
+				let newTrafficLightRecording = TrafficLightRecording(context: context)
+
+				newTrafficLightRecording.version = Int16(TrafficLightRecorder.Constants.dataModelVersion)
+				newTrafficLightRecording.startTimeStamp = start
+				newTrafficLightRecording.stopTimeStamp = Date()
+				newTrafficLightRecording.setCoordinate(coordinate)
 
 			self.trafficLightRecordings.append(newTrafficLightRecording)
 		}
@@ -61,7 +65,8 @@ struct TrafficLightRecorder {
 		self.trafficLightCoordinate = nil
 	}
 
-	mutating func startRecording() {
+	mutating func startRecording(in context: NSManagedObjectContext) {
+		self.managedObjectsContext = context
 		self.trafficLightRecordings = []
 		self.date = Date()
 		self.isRecording = true
@@ -70,11 +75,14 @@ struct TrafficLightRecorder {
 	mutating func finishRecording() -> Recording? {
 		self.isRecording = false
 
-		if let date = self.date {
-			return Recording(
-				date: date,
-				data: self.trafficLightRecordings
-			)
+		if
+			let date = self.date,
+			let context = self.managedObjectsContext,
+			self.trafficLightRecordings.isEmpty == false {
+				let recording = Recording(context: context)
+				recording.date = date
+				recording.data = NSOrderedSet(array: self.trafficLightRecordings)
+				return recording
 		}
 
 		return nil

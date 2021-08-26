@@ -10,28 +10,31 @@ import CoreData
 import Combine
 
 protocol RecordingRepository {
+	var context: NSManagedObjectContext? { get }
 	var recordings: CurrentValueSubject<[Recording], Error> { get }
-	func add(recording: Recording) -> Error?
+	func save() -> Error?
 	func getAll()
+	func delete(recording: Recording)
 }
 
 class RealRecordingRepository: RecordingRepository {
 
 	let persistentStorage = PersistentStorage()
-
 	let recordings = CurrentValueSubject<[Recording], Error>([])
+	var context: NSManagedObjectContext?
 
 	init() {
+
 		self.persistentStorage.load(completion: { [weak self] loadingError in
 			if let error = loadingError {
 				self?.recordings.send(completion: .failure(error))
 			}
 		})
+
+		self.context = self.persistentStorage.context
 	}
 
-	func add(recording: Recording) -> Error? {
-
-		_ = recording.toCoreDataEntity(in: self.persistentStorage.context)
+	func save() -> Error? {
 
 		do {
 			try self.persistentStorage.context.save()
@@ -44,18 +47,15 @@ class RealRecordingRepository: RecordingRepository {
 
 	func getAll() {
 
-		let fetchRequest: NSFetchRequest<CDRecording> = CDRecording.fetchRequest()
-
 		do {
-			let cdRecordings = try self.persistentStorage.context.fetch(fetchRequest)
-			let recordings = cdRecordings.compactMap({ cdRecording in
-				Recording.fromCoreDataEntity(cdRecording)
-			})
-
-			self.recordings.send(recordings)
+			let recordings = try self.persistentStorage.fetchRecordings()
+				self.recordings.send(recordings)
 		} catch {
 			self.recordings.send(completion: .failure(error))
 		}
 	}
 
+	func delete(recording: Recording) {
+		self.persistentStorage.delete(recording: recording)
+	}
 }

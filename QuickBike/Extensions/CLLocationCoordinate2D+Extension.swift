@@ -17,6 +17,21 @@ extension Coordinate: Identifiable {
 	}
 }
 
+extension Coordinate: Hashable {
+	public func hash(into hasher: inout Hasher) {
+		hasher.combine(self.latitude)
+		hasher.combine(self.longitude)
+		hasher.combine(self.id)
+	}
+
+	public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+		return
+			lhs.latitude == rhs.latitude &&
+			lhs.longitude == rhs.longitude &&
+			lhs.id == rhs.id
+	}
+}
+
 extension Coordinate {
 
 	var debugDescription: String {
@@ -51,20 +66,5 @@ extension Coordinate {
 		)
 
 		return distance
-	}
-
-	func toCoreDataEntity(in context: NSManagedObjectContext) -> CDCoordinate {
-		let entity = CDCoordinate(context: context)
-		entity.latitude = self.latitude
-		entity.longitude = self.longitude
-
-		return entity
-	}
-
-	static func fromCoreData(_ entity: CDCoordinate) -> Coordinate {
-		return Coordinate(
-			latitude: entity.latitude,
-			longitude: entity.longitude
-		)
 	}
 }

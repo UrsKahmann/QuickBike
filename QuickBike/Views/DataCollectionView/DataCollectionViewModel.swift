@@ -31,6 +31,7 @@ class DataCollectionViewModel: ObservableObject {
 	@Published var motionState: MotionState = .unknown
 	@Published var showAlert: Bool = false
 	@Published var recordingSavingError: Error?
+	@Published var recordingStartError: Bool = false
 
 	var currentAlert: AlertType = .stop
 	var userConfirmedTrafficLight = false
@@ -141,7 +142,8 @@ class DataCollectionViewModel: ObservableObject {
 	}
 
 	func startRecording() {
-		self.startRecordingUseCase.start()
+		// If the recording couldn't be started, false is returned
+		self.recordingStartError = self.startRecordingUseCase.start() == false
 	}
 
 	func stopRecording() {

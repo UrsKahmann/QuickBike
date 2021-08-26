@@ -20,8 +20,17 @@ struct RecordingHistoryView: View {
 				} else if let error = self.viewModel.error {
 					Text(error.localizedDescription)
 				} else {
-					List(self.viewModel.recordings) { record in
-						Text("Record with \(record.data.count) traffic lights")
+					List {
+						ForEach(self.viewModel.recordings, id: \.self) { record in
+							NavigationLink(
+								destination: RecordingHistoryDetailView(recordingID: record.id),
+//								destination: Text("Record with \(record.data?.count ?? 0) traffic lights"),
+								label: {
+									Text("Record with \(record.data?.count ?? 0) traffic lights")
+								})
+
+						}
+						.onDelete(perform: self.viewModel.delete)
 					}
 				}
 			}

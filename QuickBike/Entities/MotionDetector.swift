@@ -10,9 +10,9 @@ import Foundation
 struct MotionDetector {
 
 	enum Constants {
-		static let standingThreshold = 0.000001
-		static let minSensitivity = 0.00000001
-		static let maxSensitivity = 0.00001
+		static let standingThreshold = 0.0000002
+		static let minSensitivity = 0.0000001
+		static let maxSensitivity = 0.000001
 	}
 
 	private var accumulatedDistance = 0.0

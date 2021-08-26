@@ -29,9 +29,23 @@ class PersistentStorage {
 	}
 
 	func save() throws {
-		let context = self.persistentContainer.viewContext
-		if context.hasChanges {
+		if self.context.hasChanges {
 			try context.save()
+		}
+	}
+
+	func fetchRecordings() throws -> [Recording] {
+		return try self.context.fetch(Recording.fetchRequest())
+	}
+
+	func delete(recording: Recording) {
+		self.context.delete(recording)
+
+		do {
+			try self.context.save()
+		} catch {
+			// TODO: handle error better
+			print("Error saving deleted state")
 		}
 	}
 }
