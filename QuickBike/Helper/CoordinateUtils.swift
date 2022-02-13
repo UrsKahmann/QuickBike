@@ -8,18 +8,14 @@
 import Foundation
 import MapKit
 
-private enum Constants {
-	static let regionSectionMultiplier: Double = 1
-}
-
 enum CoordinateUtils {
-	static func coordinateRegion(for trafficLightRecordings: [TrafficLightRecording]) -> MKCoordinateRegion? {
+	static func coordinateRegion(for trafficLightRecordings: [RecordingPoint]) -> MKCoordinateRegion? {
 
-		let latitudes = trafficLightRecordings.map { (recording: TrafficLightRecording) in
+		let latitudes = trafficLightRecordings.map { (recording: RecordingPoint) in
 			return recording.coordinate.latitude
 		}
 
-		let longitudes = trafficLightRecordings.map { (recording: TrafficLightRecording) in
+		let longitudes = trafficLightRecordings.map { (recording: RecordingPoint) in
 			return recording.coordinate.longitude
 		}
 
@@ -31,20 +27,24 @@ enum CoordinateUtils {
 				return nil
 		}
 
-		let size = MKMapSize(
-			width: (maxLatitude - minLatitude) + Constants.regionSectionMultiplier,
-			height: (maxLongitude - minLongitude) + Constants.regionSectionMultiplier
+		let latMaxCoordinate = CLLocation(latitude: maxLatitude, longitude: 0.0)
+		let latMinCoordinate = CLLocation(latitude: minLatitude, longitude: 0.0)
+
+		let longMaxCoordinate = CLLocation(latitude: 0.0, longitude: maxLongitude)
+		let longMinCoordinate = CLLocation(latitude: 0.0, longitude: minLongitude)
+
+		let latitudinalMeters =  latMaxCoordinate.distance(from: latMinCoordinate)
+		let longitudinalMeters = longMaxCoordinate.distance(from: longMinCoordinate)
+
+		let center = Coordinate(
+			latitude: (minLatitude + maxLatitude) / 2,
+			longitude: (minLongitude + maxLongitude) / 2
 		)
 
-		let center = MKMapPoint(
-			Coordinate(
-				latitude: (minLatitude + maxLatitude) / 2,
-				longitude: (minLongitude + maxLongitude) / 2
-			)
+		return MKCoordinateRegion(
+			center: center,
+			latitudinalMeters: latitudinalMeters,
+			longitudinalMeters: longitudinalMeters
 		)
-
-		let rect = MKMapRect(origin: center, size: size)
-
-		return MKCoordinateRegion(rect)
 	}
 }

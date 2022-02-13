@@ -1,8 +1,8 @@
 //
 //  Recording+CoreDataClass.swift
-//  
+//  QuickBike
 //
-//  Created by Urs Privat on 26.08.21.
+//  Created by Urs Privat on 13.02.22.
 //
 //
 

@@ -1,5 +1,5 @@
 //
-//  GetMotionStateUseCase.swift
+//  GetMotionStateUsecase.swift
 //  QuickBike
 //
 //  Created by Urs Privat on 30.07.21.
@@ -14,7 +14,7 @@ enum MotionState {
 	case unknown
 }
 
-class GetMotionStateUseCase {
+class GetMotionStateUsecase {
 
 	private let locationRepository: LocationRepository
 	private var motionDetector = MotionDetector()
@@ -24,7 +24,7 @@ class GetMotionStateUseCase {
 
 	private var cancellable = Set<AnyCancellable>()
 
-	init(locationRepository: LocationRepository) {
+	init(locationRepository: LocationRepository = RealLocationRepository.shared) {
 		self.locationRepository = locationRepository
 
 		self.locationRepository

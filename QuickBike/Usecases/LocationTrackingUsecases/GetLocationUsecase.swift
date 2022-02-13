@@ -1,5 +1,5 @@
 //
-//  GetLocationUseCase.swift
+//  GetLocationUsecase.swift
 //  QuickBike
 //
 //  Created by Urs Privat on 27.07.21.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class GetLocationUseCase {
+class GetLocationUsecase {
 
 	private let locationRepository: LocationRepository
 
@@ -17,7 +17,7 @@ class GetLocationUseCase {
 
 	private var cancellable = Set<AnyCancellable>()
 
-	init(locationRepository: LocationRepository) {
+	init(locationRepository: LocationRepository = RealLocationRepository.shared) {
 		self.locationRepository = locationRepository
 
 		self.locationRepository

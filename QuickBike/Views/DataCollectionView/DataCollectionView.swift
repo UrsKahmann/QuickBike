@@ -13,7 +13,7 @@ struct DataCollectionView: View {
 
 	@Environment(\.presentationMode) var presentationMode
 
-	@ObservedObject var viewModel = ViewModelFactory.shared.dataCollectionViewModel
+	@ObservedObject var viewModel = ViewModelFactory.createDataCollectionViewModel()
 
 	private var statusLabel: some View {
 		VStack {

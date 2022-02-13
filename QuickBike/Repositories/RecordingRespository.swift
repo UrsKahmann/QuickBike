@@ -19,11 +19,13 @@ protocol RecordingRepository {
 
 class RealRecordingRepository: RecordingRepository {
 
-	let persistentStorage = PersistentStorage()
-	let recordings = CurrentValueSubject<[Recording], Error>([])
-	var context: NSManagedObjectContext?
+	static let shared = RealRecordingRepository()
 
-	init() {
+	private let persistentStorage = PersistentStorage()
+	internal let recordings = CurrentValueSubject<[Recording], Error>([])
+	internal var context: NSManagedObjectContext?
+
+	private init() {
 
 		self.persistentStorage.load(completion: { [weak self] loadingError in
 			if let error = loadingError {

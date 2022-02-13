@@ -1,22 +1,22 @@
 //
-//  TrafficLightRecording+CoreDataClass.swift
-//  
+//  RecordingPoint+CoreDataClass.swift
+//  QuickBike
 //
-//  Created by Urs Privat on 26.08.21.
+//  Created by Urs Privat on 13.02.22.
 //
 //
 
 import Foundation
 import CoreData
 
-@objc(TrafficLightRecording)
-public class TrafficLightRecording: NSManagedObject {
+@objc(RecordingPoint)
+public class RecordingPoint: NSManagedObject {
 
 	var coordinate: Coordinate {
 		return Coordinate(latitude: self.latitude, longitude: self.longitude)
 	}
 
-	func setCoordinate(_ coordinate: Coordinate) {
+	func set(coordinate: Coordinate) {
 		self.latitude = coordinate.latitude
 		self.longitude = coordinate.longitude
 	}

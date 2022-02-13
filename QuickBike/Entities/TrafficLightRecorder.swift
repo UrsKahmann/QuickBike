@@ -18,7 +18,7 @@ struct TrafficLightRecorder {
 
 	private var managedObjectsContext: NSManagedObjectContext?
 
-	private var trafficLightRecordings = [TrafficLightRecording]()
+	private var trafficLightRecordings = [RecordingPoint]()
 	private var date: Date?
 	private var isRecording = false
 
@@ -45,12 +45,13 @@ struct TrafficLightRecorder {
 			let start = self.trafficLightStartTime,
 			let coordinate = self.trafficLightCoordinate,
 			let context = self.managedObjectsContext {
-				let newTrafficLightRecording = TrafficLightRecording(context: context)
+				let newTrafficLightRecording = RecordingPoint(context: context)
 
+				newTrafficLightRecording.id = UUID()
 				newTrafficLightRecording.version = Int16(TrafficLightRecorder.Constants.dataModelVersion)
-				newTrafficLightRecording.startTimeStamp = start
-				newTrafficLightRecording.stopTimeStamp = Date()
-				newTrafficLightRecording.setCoordinate(coordinate)
+				newTrafficLightRecording.startTimestamp = start
+				newTrafficLightRecording.stopTimestamp = Date()
+				newTrafficLightRecording.set(coordinate: coordinate)
 
 			self.trafficLightRecordings.append(newTrafficLightRecording)
 		}
@@ -80,7 +81,8 @@ struct TrafficLightRecorder {
 			let context = self.managedObjectsContext,
 			self.trafficLightRecordings.isEmpty == false {
 				let recording = Recording(context: context)
-				recording.date = date
+				recording.id = UUID()
+				recording.timestamp = date
 				recording.data = NSOrderedSet(array: self.trafficLightRecordings)
 				return recording
 		}

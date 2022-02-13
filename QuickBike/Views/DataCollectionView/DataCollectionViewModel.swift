@@ -17,14 +17,14 @@ enum AlertType {
 
 class DataCollectionViewModel: ObservableObject {
 
-	private let startLocationTrackingUseCase: StartLocationTrackingUseCase
-	private let stopLocationTrackingUseCase: StopLocationTrackingUseCase
-	private let getLocationDataUseCase: GetLocationUseCase
-	private let getMotionStateUseCase: GetMotionStateUseCase
-	private let saveRecordingUseCase: SaveRecordingUseCase
-	private let startRecordingUseCase: StartRecordingUseCase
-	private let startTrafficLightRecoringUseCase: StartTrafficLightRecordingUseCase
-	private let stopTrafficLightRecordingUseCase: StopTrafficLightRecordingUseCase
+	private let startLocationTrackingUsecase: StartLocationTrackingUsecase
+	private let stopLocationTrackingUsecase: StopLocationTrackingUsecase
+	private let getLocationDataUsecase: GetLocationUsecase
+	private let getMotionStateUsecase: GetMotionStateUsecase
+	private let saveRecordingUsecase: SaveRecordingUsecase
+	private let startRecordingUsecase: StartRecordingUsecase
+	private let startTrafficLightRecoringUsecase: StartTrafficLightRecordingUsecase
+	private let stopTrafficLightRecordingUsecase: StopTrafficLightRecordingUsecase
 
 	@Published var currentLocation: Coordinate?
 	@Published var region: MKCoordinateRegion = MKCoordinateRegion()
@@ -41,30 +41,30 @@ class DataCollectionViewModel: ObservableObject {
 	private var cancellable = Set<AnyCancellable>()
 
 	init(
-		startUseCase: StartLocationTrackingUseCase,
-		stopUseCase: StopLocationTrackingUseCase,
-		getUseCase: GetLocationUseCase,
-		haltUseCase: GetMotionStateUseCase,
-		saveRecordingUseCase: SaveRecordingUseCase,
-		startRecordingUseCase: StartRecordingUseCase,
-		startTrafficUseCase: StartTrafficLightRecordingUseCase,
-		stopTrafficUseCase: StopTrafficLightRecordingUseCase) {
+		startUsecase: StartLocationTrackingUsecase,
+		stopUsecase: StopLocationTrackingUsecase,
+		getUsecase: GetLocationUsecase,
+		haltUsecase: GetMotionStateUsecase,
+		saveRecordingUsecase: SaveRecordingUsecase,
+		startRecordingUsecase: StartRecordingUsecase,
+		startTrafficUsecase: StartTrafficLightRecordingUsecase,
+		stopTrafficUsecase: StopTrafficLightRecordingUsecase) {
 
-			self.startLocationTrackingUseCase = startUseCase
-			self.stopLocationTrackingUseCase = stopUseCase
-			self.getLocationDataUseCase = getUseCase
-			self.getMotionStateUseCase = haltUseCase
-			self.saveRecordingUseCase = saveRecordingUseCase
-			self.startRecordingUseCase = startRecordingUseCase
-			self.startTrafficLightRecoringUseCase = startTrafficUseCase
-			self.stopTrafficLightRecordingUseCase = stopTrafficUseCase
+			self.startLocationTrackingUsecase = startUsecase
+			self.stopLocationTrackingUsecase = stopUsecase
+			self.getLocationDataUsecase = getUsecase
+			self.getMotionStateUsecase = haltUsecase
+			self.saveRecordingUsecase = saveRecordingUsecase
+			self.startRecordingUsecase = startRecordingUsecase
+			self.startTrafficLightRecoringUsecase = startTrafficUsecase
+			self.stopTrafficLightRecordingUsecase = stopTrafficUsecase
 
 			self.creatBindings()
 	}
 
 	private func creatBindings() {
 
-		self.getMotionStateUseCase
+		self.getMotionStateUsecase
 			.$motionState
 			.sink { (motionState: MotionState) in
 				self.motionState = motionState
@@ -74,7 +74,7 @@ class DataCollectionViewModel: ObservableObject {
 					self.showAlert = true
 					print("Did Stop = true")
 					if let currentLocation = self.currentLocation {
-						self.startTrafficLightRecoringUseCase
+						self.startTrafficLightRecoringUsecase
 							.start(coordinate: currentLocation)
 					}
 
@@ -83,7 +83,7 @@ class DataCollectionViewModel: ObservableObject {
 					print("Did Stop = false")
 					if self.userConfirmedTrafficLight == true {
 						self.userConfirmedTrafficLight = false
-						self.stopTrafficLightRecordingUseCase.stop()
+						self.stopTrafficLightRecordingUsecase.stop()
 					} else {
 						// TODO: cancel traffic light recordin
 					}
@@ -91,7 +91,7 @@ class DataCollectionViewModel: ObservableObject {
 			}
 			.store(in: &cancellable)
 
-		self.getLocationDataUseCase
+		self.getLocationDataUsecase
 			.$currentLocation
 			.sink { (current: Coordinate) in
 
@@ -130,24 +130,24 @@ class DataCollectionViewModel: ObservableObject {
 	}
 
 	func startLocationTracking() {
-		self.startLocationTrackingUseCase.start()
+		self.startLocationTrackingUsecase.start()
 	}
 
 	func stopLocationTracking() {
-		self.stopLocationTrackingUseCase.stop()
+		self.stopLocationTrackingUsecase.stop()
 	}
 
 	func sensitivityChanged() {
-		self.getMotionStateUseCase.updateSensitivity(to: self.motionDetectionSensitivity)
+		self.getMotionStateUsecase.updateSensitivity(to: self.motionDetectionSensitivity)
 	}
 
 	func startRecording() {
 		// If the recording couldn't be started, false is returned
-		self.recordingStartError = self.startRecordingUseCase.start() == false
+		self.recordingStartError = self.startRecordingUsecase.start() == false
 	}
 
 	func stopRecording() {
-		self.recordingSavingError = self.saveRecordingUseCase.saveCurrentRecording()
+		self.recordingSavingError = self.saveRecordingUsecase.saveCurrentRecording()
 	}
 
 	func confirmTrafficLight() {

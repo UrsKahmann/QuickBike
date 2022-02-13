@@ -10,7 +10,7 @@ import Rswift
 
 struct RecordingHistoryView: View {
 
-	@ObservedObject var viewModel = ViewModelFactory.shared.recordingHistoryViewModel
+	@ObservedObject var viewModel = ViewModelFactory.createRecordingHistoryViewModel()
 
 	var body: some View {
 		NavigationView {

@@ -17,11 +17,11 @@ protocol LocationRepository {
 
 struct RealLocationRepository: LocationRepository {
 
-	private let locationService: LocationProvider
+	static let shared = RealLocationRepository()
 
-	init(locationProvider: LocationProvider = LocationService()) {
-		self.locationService = locationProvider
-	}
+	private let locationService: LocationProvider = MockLocationService() // LocationService()
+
+	private init() {}
 
 	func startLocationTracking() {
 		self.locationService.startLocationTracking()

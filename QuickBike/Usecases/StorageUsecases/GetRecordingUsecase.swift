@@ -1,5 +1,5 @@
 //
-//  GetRecordingUseCase.swift
+//  GetRecordingUsecase.swift
 //  QuickBike
 //
 //  Created by Urs Privat on 10.08.21.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class GetRecordingUseCase {
+class GetRecordingUsecase {
 
 	private let recordingRepository: RecordingRepository
 
@@ -17,7 +17,7 @@ class GetRecordingUseCase {
 	@Published var recordings: [Recording] = []
 	@Published var error: Error?
 
-	init(recordingRepository: RecordingRepository) {
+	init(recordingRepository: RecordingRepository = RealRecordingRepository.shared) {
 		self.recordingRepository = recordingRepository
 
 		self.recordingRepository

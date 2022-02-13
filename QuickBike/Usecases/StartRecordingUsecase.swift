@@ -1,5 +1,5 @@
 //
-//  StartRecordingUseCase.swift
+//  StartRecordingUsecase.swift
 //  QuickBike
 //
 //  Created by Urs Privat on 08.08.21.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct StartRecordingUseCase {
+struct StartRecordingUsecase {
 	private let recordingRepository: RecordingRepository
 
-	init(recordingRepository: RecordingRepository) {
+	init(recordingRepository: RecordingRepository = RealRecordingRepository.shared) {
 		self.recordingRepository = recordingRepository
 	}
 

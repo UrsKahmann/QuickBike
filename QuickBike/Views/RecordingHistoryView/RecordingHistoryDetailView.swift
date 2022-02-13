@@ -10,7 +10,7 @@ import MapKit
 
 struct RecordingHistoryDetailView: View {
 
-	@ObservedObject var viewModel = ViewModelFactory.shared.recordingHistoryDetailViewModel
+	@ObservedObject var viewModel = ViewModelFactory.createRecordingHistoryDetailViewModel()
 
 	init(recordingID: UUID?) {
 		self.viewModel.recordingID = recordingID

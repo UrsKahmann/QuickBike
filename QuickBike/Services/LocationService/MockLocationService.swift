@@ -24,15 +24,17 @@ class MockLocationService: LocationProvider {
 		let stop = CLLocation(latitude: 52.5426994, longitude: 13.3534015)
 		let directionVektor = stop - start
 		var data = [start]
-		for i in 1...100 {
-			let new = start + (directionVektor * (Double(i) / 100.0))
+
+		let sampleSize = 100
+		for i in 1...sampleSize {
+			let new = start + (directionVektor * (Double(i) / Double(sampleSize)))
 			data.append(new)
 
 			if i == 10 || i == 20 {
 				for j in 1...10 {
 					let standing = new + CLLocation(
-						latitude: Double.random(in: 0.0000001...0.0000005),
-						longitude: Double.random(in: 0.0000001...0.0000005)
+						latitude: Double.random(in: 0.00000001...0.00000005),
+						longitude: Double.random(in: 0.00000001...0.00000005)
 					)
 
 					data.append(standing)
@@ -53,7 +55,7 @@ class MockLocationService: LocationProvider {
 
 	init() {
 
-		let timerPublisher = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+		let timerPublisher = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
 		let coordinatePublisher = Publishers.Zip(MockLocationService.mockLocationData.publisher, timerPublisher)
 
 		self.emitter = coordinatePublisher.map { (coordinate: CLLocation, _ : Date) in

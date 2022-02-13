@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Recording" representedClassName="Recording" syncable="YES" codeGenerationType="category">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="data" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TrafficLightRecording" inverseName="recording" inverseEntity="TrafficLightRecording"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="data" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="RecordingPoint" inverseName="recording" inverseEntity="RecordingPoint"/>
     </entity>
-    <entity name="TrafficLightRecording" representedClassName="TrafficLightRecording" syncable="YES" codeGenerationType="category">
+    <entity name="RecordingPoint" representedClassName="RecordingPoint" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" customClassName="Coordinate"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="startTimeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="stopTimeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="startTimestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="stopTimestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="recording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recording" inverseName="data" inverseEntity="Recording"/>
     </entity>
     <elements>
+        <element name="RecordingPoint" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="Recording" positionX="-36" positionY="27" width="128" height="74"/>
-        <element name="TrafficLightRecording" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

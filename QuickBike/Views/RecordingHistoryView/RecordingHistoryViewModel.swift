@@ -12,8 +12,8 @@ import MapKit
 
 class RecordingHistoryViewModel: ObservableObject {
 
-	private let getRecordingUseCase: GetRecordingUseCase
-	private let deleteRecordingUseCase: DeleteRecordingUseCase
+	private let getRecordingUsecase: GetRecordingUsecase
+	private let deleteRecordingUsecase: DeleteRecordingUsecase
 
 	@Published var recordings: [Recording] = []
 	@Published var error: Error?
@@ -21,21 +21,21 @@ class RecordingHistoryViewModel: ObservableObject {
 	private var cancellable = Set<AnyCancellable>()
 
 	init(
-		getRecordingUseCase: GetRecordingUseCase,
-		deleteRecordingUseCase: DeleteRecordingUseCase
+		getRecordingUsecase: GetRecordingUsecase,
+		deleteRecordingUsecase: DeleteRecordingUsecase
 	) {
 
-		self.getRecordingUseCase = getRecordingUseCase
-		self.deleteRecordingUseCase = deleteRecordingUseCase
+		self.getRecordingUsecase = getRecordingUsecase
+		self.deleteRecordingUsecase = deleteRecordingUsecase
 
-		self.getRecordingUseCase
+		self.getRecordingUsecase
 			.$recordings
 			.sink { recordings in
 				self.recordings = recordings
 			}
 			.store(in: &cancellable)
 
-		self.getRecordingUseCase
+		self.getRecordingUsecase
 			.$error
 			.sink { error in
 				self.error = error
@@ -46,7 +46,7 @@ class RecordingHistoryViewModel: ObservableObject {
 	}
 
 	func getAllRecordings() {
-		self.getRecordingUseCase.getAllRecordings()
+		self.getRecordingUsecase.getAllRecordings()
 	}
 
 	func delete(at indexOffset: IndexSet) {
@@ -56,7 +56,7 @@ class RecordingHistoryViewModel: ObservableObject {
 
 		for recording in recordingsToDelete {
 			print("Deleting a recording")
-			self.deleteRecordingUseCase.delete(recording: recording)
+			self.deleteRecordingUsecase.delete(recording: recording)
 		}
 
 		self.getAllRecordings()

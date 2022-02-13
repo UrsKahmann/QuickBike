@@ -11,12 +11,12 @@ import MapKit
 
 class RecordingHistoryDetailViewModel: ObservableObject {
 
-	private let getRecordingUseCase: GetRecordingUseCase
+	private let getRecordingUsecase: GetRecordingUsecase
 
 	var recordingID: UUID?
 
-	var trafficLightRecordings: [TrafficLightRecording] {
-		if let recordings = self.recording?.data?.array as? [TrafficLightRecording] {
+	var trafficLightRecordings: [RecordingPoint] {
+		if let recordings = self.recording?.data?.array as? [RecordingPoint] {
 			return recordings
 		}
 
@@ -30,13 +30,13 @@ class RecordingHistoryDetailViewModel: ObservableObject {
 	private var cancellable = Set<AnyCancellable>()
 
 	init(
-		getRecordingUseCase: GetRecordingUseCase,
+		getRecordingUsecase: GetRecordingUsecase,
 		for recordingID: UUID? = nil
 	) {
 
-		self.getRecordingUseCase = getRecordingUseCase
+		self.getRecordingUsecase = getRecordingUsecase
 
-		self.getRecordingUseCase
+		self.getRecordingUsecase
 			.$recordings
 			.sink { (recordings: [Recording]) in
 				self.recording = recordings.filter { (recording: Recording) in
@@ -49,7 +49,7 @@ class RecordingHistoryDetailViewModel: ObservableObject {
 			}
 			.store(in: &cancellable)
 
-		self.getRecordingUseCase
+		self.getRecordingUsecase
 			.$error
 			.sink { error in
 				self.error = error
@@ -60,7 +60,7 @@ class RecordingHistoryDetailViewModel: ObservableObject {
 	}
 
 	func annontationItems() -> [Coordinate] {
-		let trafficLightCoordinate = self.trafficLightRecordings.map { (recording: TrafficLightRecording) in
+		let trafficLightCoordinate = self.trafficLightRecordings.map { (recording: RecordingPoint) in
 			recording.coordinate
 		}
 
@@ -68,6 +68,6 @@ class RecordingHistoryDetailViewModel: ObservableObject {
 	}
 
 	func getAllRecordings() {
-		self.getRecordingUseCase.getAllRecordings()
+		self.getRecordingUsecase.getAllRecordings()
 	}
 }
